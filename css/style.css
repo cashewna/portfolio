@@ -4,3 +4,31 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Roboto, sans-serif;
+}
+
+header {
+  height: 100px;
+  background-color: #1F2937;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .header-logo {
+  height: 100%;
+  width: auto;
+  margin-left: 3em;
+}
+
+header ul {
+  display: flex;
+  list-style-type: none;
+}
+
+header ul li a {
+  padding: 0 2em;
+  text-decoration: none;
+  color: #F9FAF8;
+}
