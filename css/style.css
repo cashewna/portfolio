@@ -189,6 +189,14 @@ footer {
   text-align: right;
 }
 
-.left-paragraph, .center-paragraph, .right-paragraph {
+.about-container p {
   padding-bottom: 20px;
+}
+
+.text-decoration-line {
+  text-decoration: line-through;
+}
+
+.text-decoration-thick {
+  text-decoration: solid underline red 4px;
 }
