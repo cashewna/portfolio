@@ -114,6 +114,7 @@ header ul li a {
 }
 
 .professional-interests h1 {
+  font-size: 32px;
   padding-bottom: 20px;
 }
 
@@ -129,6 +130,7 @@ header ul li a {
 }
 
 .hobbies h1 {
+  font-size: 32px;
   padding-bottom: 20px;
 }
 
@@ -143,6 +145,14 @@ header ul li a {
 .hobbies ul > li {
   width: 400px;
   list-style-type: square;
+}
+
+.hobbies ol > li {
+  margin-left: 1em;
+}
+
+.hobbies ol > ul > li {
+  margin-left: 2em;
 }
 
 footer {

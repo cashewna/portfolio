@@ -8,6 +8,7 @@
     <meta name="description" content="Khong's Web Portfolio">
     <meta name="date" content="2022-04-10">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!--This document contains Krishna R Khong's portfolio as of 2022-04-10-->
     <title>Portfolio - Krishna R Khong</title>
   </head>
@@ -99,12 +100,11 @@
               <li>Sonarr</li>
               <li>Radarr</li>
               <li>Bazarr</li>
+              <li>Doplarr</li>
               <li>Caddy2</li>
               <li>DuckDNS</li>
             </ol>
           </ul>
-           
-              
           </ol>
         </section>
       </div>
@@ -113,5 +113,19 @@
     <footer>
       <p>Copyright &copy; Krishna R Khong</p>
     </footer>
+
+    <script>
+      ScrollReveal({ 
+        reset: true,
+        distance: '200px',
+        duration: 2500,
+        delay: 400
+      });
+
+      ScrollReveal().reveal('.professional-interests h1', {delay: 100});
+      ScrollReveal().reveal('.professional-interests-list', {delay: 200});
+      ScrollReveal().reveal('.hobbies h1', {delay: 200});
+      ScrollReveal().reveal('.hobbies ul', {delay: 300});
+    </script>
   </body>
 </html>
