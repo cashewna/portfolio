@@ -84,7 +84,7 @@ header ul li a {
   color: #F9FAF8;
 }
 
-.about-me {
+.btn-about-me {
   padding: 15px 30px;
   background-color: #3882f6;
   color: #F9FAF8;
@@ -93,6 +93,10 @@ header ul li a {
   border-radius: 24px;
   font-size: 18px;
   cursor: pointer;
+}
+
+.btn-about-me a {
+  text-decoration: none;
 }
 
 .professional-interests, .hobbies {
@@ -107,10 +111,36 @@ header ul li a {
   background-color: burlywood;
 }
 
+.professional-interests h1 {
+  padding-bottom: 20px;
+}
+
+.professional-interests dt {
+  font-weight: bold;
+  padding: 20px 0px;
+}
+
 .hobbies {
   background-image: linear-gradient( 10deg, rgba(68, 70, 88, 0.85), rgba(214, 214, 173, 0.5) ), url(https://wallpaperforu.com/wp-content/uploads/2020/06/paste-wallpaper-2006171415338-scaled.jpg);
   background-position: center;
   background-size: cover;
+}
+
+.hobbies h1 {
+  padding-bottom: 20px;
+}
+
+.hobbies ul {
+  float: left;
+}
+
+.hobbies ol {
+  list-style-type:lower-roman;
+}
+
+.hobbies ul > li {
+  width: 400px;
+  list-style-type: square;
 }
 
 footer {
