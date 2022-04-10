@@ -97,8 +97,6 @@ header ul li a {
 .btn-about-me a {
   text-decoration: none;
   color: #f9faf8;
-
-
 }
 
 .professional-interests, .hobbies {
@@ -162,6 +160,11 @@ footer {
   align-items: center;
   gap: 32px;
   padding: 16px;
+  color: #f9faf8;
+}
+
+.no-decoration a {
+  text-decoration: none;
   color: #f9faf8;
 }
 
