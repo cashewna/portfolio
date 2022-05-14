@@ -19,6 +19,8 @@
     <title>Portfolio - Krishna R Khong</title>
   </head>
   <body>
+
+    <!--The header will contain the website logo and navigation buttons-->
     <header>
       <div class="header-logo">
         <img src="./images/logo.png" alt="header-logo" width="102">
@@ -33,6 +35,8 @@
     </header>
 
     <main>
+      <!--The introduction container will fill up the viewer's screen,
+         revealing the rest of the website on scroll-->
         <div class="introduction-container">
           <div class="introduction-left">
             <h1>Portfolio</h1>
@@ -50,74 +54,75 @@
           </div>
         </div>
 
-      <div class="professional-interests">
-        <section id="professional-interests-id">
-          <h1>Professional Interests</h1>
-          <dl class="professional-interests-list">
-            <dt>Web Development</dt>
-            <dd>
-              Designing functional websites using both creativity and
-              problem-solving skills.
-            </dd>
-            <dt>Financial Technology</dt>
-            <dd>
-              Leveraging disruptive technologies such as offering faster, lighter,
-              and better solutions compared to traditional financial services.
-            </dd>
-          </dl>
-        </section>
+        <!--Professional Interests Block.-->
+        <div class="professional-interests">
+          <section id="professional-interests-id">
+            <h1>Professional Interests</h1>
+            <dl class="professional-interests-list">
+              <dt>Web Development</dt>
+              <dd>
+                Designing functional websites using both creativity and
+                problem-solving skills.
+              </dd>
+              <dt>Financial Technology</dt>
+              <dd>
+                Leveraging disruptive technologies such as offering faster, lighter,
+                and better solutions compared to traditional financial services.
+              </dd>
+            </dl>
+          </section>
+        </div>
 
-      </div>
-
-      <div class="hobbies">
-        <section id="hobbies-id">
-          <h1>Hobbies</h1>
-          <!--Column One-->
-          <ul>
-            <li>Audio
-              <ol>
-                <li>Headphones
-                  <ul>
-                      <li>Sony MDR-ZX110NC</li>
-                      <li>Sony WH1000XM3</li>
-                      <li>Apple AirPods Max</li>
-                  </ul>
+        <!--Hobbies Block-->
+        <div class="hobbies">
+          <section id="hobbies-id">
+            <h1>Hobbies</h1>
+            <!--Column One-->
+            <ul>
+              <li>Audio
+                <ol>
+                  <li>Headphones
+                    <ul>
+                        <li>Sony MDR-ZX110NC</li>
+                        <li>Sony WH1000XM3</li>
+                        <li>Apple AirPods Max</li>
+                    </ul>
+                  </li>
+                  <li>In-Ear Monitors
+                    <ul>
+                        <li>Audio-Technica ATH-LS50iS</li>
+                        <li>7Hertz Timeless</li>
+                    </ul>
+                  </li>
+                  </ol>
                 </li>
-                <li>In-Ear Monitors
-                  <ul>
-                      <li>Audio-Technica ATH-LS50iS</li>
-                      <li>7Hertz Timeless</li>
-                  </ul>
-                </li>
+            </ul>
+            <!--Column Two-->
+            <ul>
+              <li>Games
+                  <ol>
+                    <li>Genshin Impact</li>
+                    <li>League of Legends</li>
+                    <li>Teamfight Tactics</li>
+                  </ol>
+              </li>
+            </ul>
+            <!--Column Three-->
+            <ul>
+              <li>Media Server Automation
+                <ol>
+                  <li>Plex</li>
+                  <li>Sonarr</li>
+                  <li>Radarr</li>
+                  <li>Bazarr</li>
+                  <li>Doplarr</li>
+                  <li>Caddy2</li>
+                  <li>DuckDNS</li>
                 </ol>
               </li>
-          </ul>
-          <!--Column Two-->
-          <ul>
-            <li>Games
-                <ol>
-                  <li>Genshin Impact</li>
-                  <li>League of Legends</li>
-                  <li>Teamfight Tactics</li>
-                </ol>
-            </li>
-          </ul>
-          <!--Column Three-->
-          <ul>
-            <li>Media Server Automation
-              <ol>
-                <li>Plex</li>
-                <li>Sonarr</li>
-                <li>Radarr</li>
-                <li>Bazarr</li>
-                <li>Doplarr</li>
-                <li>Caddy2</li>
-                <li>DuckDNS</li>
-              </ol>
-            </li>
-          </ul>
-        </section>
-      </div>
+            </ul>
+          </section>
+        </div>
     </main>
 
     <footer>
@@ -125,6 +130,8 @@
       <p class="no-decoration"><a href="mailto:krishnakhong@gmai.com">krishnakhong@gmail.com</a></p>
     </footer>
 
+    <!--Script to control scroll reveal animation such as delay, duration, resetting
+      the animation sequence upon scrolling back to the top, and distance from start of reveal.-->
     <script>
       ScrollReveal({ 
         reset: true,
