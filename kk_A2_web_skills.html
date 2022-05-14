@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Krishna R Khong</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap");
-      .font-style {
-        font-family: "Pacifico", Roboto, sans-serif, Georgia;
-      }
-    </style>
+    <!--Stylesheets. One for normal viewing and one for print view.-->
+    <link rel="stylesheet" media="screen" href="/css/style.css" />
+    <link rel="stylesheet" media="print" href="/css/print.css" />
+
   </head>
   <body>
-    <header>
+    <!--no-print prevents print view from printing the navigation pane,
+    removes background colours and images, and increases the font-size-->
+    <header class="no-print">
       <div class="header-logo">
         <img src="./images/logo.png" alt="header-logo" width="102px" />
       </div>
