@@ -262,3 +262,34 @@ table, th, td {
 th, td {
   padding: 5px;
 }
+
+/** Scrolls the user back to top of the page */
+.back-to-top {
+  position: fixed;
+  left: 5rem;
+  bottom: 6rem;
+  border-radius: 100%;
+  background: #141c38;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  opacity: 100%;
+  transition: opacity 0.5s;
+}
+
+/** Hides back-to-top button */
+.hidden {
+  opacity: 0%;
+}
+
+/** Makes SVG icon visible */
+.back-to-top-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #7ac9f9;
+}
+
+/** Change opacity of back-to-top button on hover */
+.back-to-top:hover {
+  opacity: 60%;
+}
