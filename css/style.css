@@ -1,13 +1,18 @@
+/** Universal Selector */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/** First font to the left is the main font to be used, if not available, then
+    iterate through the list */
 body {
   font-family: Roboto, sans-serif, Georgia, 'Times New Roman', Times, serif;
 }
 
+/** Header will contain the navigation bar and will use flex to align the logo and
+    navigation buttons in a row */
 header {
   height: 100px;
   background-color: #1F2937;
@@ -16,24 +21,29 @@ header {
   align-items: center;
 }
 
+/** Logo will be aligned to the left and will follow the height of the parent header container */
 header .header-logo {
   height: 100%;
   width: auto;
   margin-left: 100px;
 }
 
+/** List will hide the default bullet points and will be aligned to the right of the header */
 header ul {
   display: flex;
   list-style-type: none;
   padding-right: 100px;
 }
 
+/** Navigation elements will have an underscore by default, we will be removing those text-decorations */
 header ul li a {
   padding: 0 2em;
   text-decoration: none;
   color: #F9FAF8;
 }
 
+/** Introduction container will fill up the viewer's viewport (minus the navbar height) 
+    flex will be used to align contents inside the container */
 .introduction-container {
   display: flex;
   height: calc(100vh - 100px);
@@ -42,16 +52,23 @@ header ul li a {
   background-color: #1F2937;
 }
 
+/** Introduction containers (text and image respectively) will be 
+    aligned left and right (alternative to using tables) */
 .introduction-container .introduction-left {
   width: 40%;
   padding-left: 260px;
 }
 
+/** width of 50% so each container takes up an equal amount of space.
+    padding brings the left-container somewhat closer to the centre */
 .introduction-container .introduction-right {
   width: 50%;
   padding-left: 100px;
 }
 
+/** Add a border to the image and round the image out, add a maximum-width and 
+    change the flex grow/shrink/basis so the image will be 
+    more responsive to different screen layouts. */
 .introduction-container .introduction-right .display-picture img {
   object-fit: cover;
   flex: 1 1 auto;
@@ -61,6 +78,7 @@ header ul li a {
   box-shadow: 2px 2px 3px;
 }
 
+/** Stylise the introduction text */
 .introduction-container h1 {
   font-size: 48px;
   font-weight: bolder;
@@ -68,6 +86,7 @@ header ul li a {
   color: #F9FAF8;
 }
 
+/** Add spacing between the letters and turn intro h2 into uppercase */
 .introduction-container h2 {
   font-size: 30px;
   font-weight: 400;
@@ -76,6 +95,7 @@ header ul li a {
   text-transform: uppercase;
 }
 
+/** Add margin to the top and bottom of the introduction paragraph for stylistic spacing */
 .introduction-container p {
   font-size: 18px;
   font-weight: 400;
@@ -84,6 +104,7 @@ header ul li a {
   color: #F9FAF8;
 }
 
+/** Call-to-action (CTA) button), scrolls the viewer to the professional-interests section. */
 .btn-about-me {
   padding: 15px 30px;
   background-color: #3882f6;
@@ -99,6 +120,8 @@ header ul li a {
   color: #f9faf8;
 }
 
+/** Take up only 50% of the viewer's viewport with the professional-interests section
+    Use of borders to segregate different sections of the website. */
 .professional-interests, .hobbies {
   height: 50vh;
   display: flex;
@@ -121,6 +144,8 @@ header ul li a {
   padding: 20px 0px;
 }
 
+
+/** Use of background-images with gradients to showcase transparency effects. */
 .hobbies {
   background-image: linear-gradient( 10deg, rgba(68, 70, 88, 0.85), rgba(214, 214, 173, 0.5) ), url(https://wallpaperforu.com/wp-content/uploads/2020/06/paste-wallpaper-2006171415338-scaled.jpg);
   background-position: center;
@@ -140,6 +165,7 @@ header ul li a {
   list-style-type:lower-roman;
 }
 
+/** Use of selector specifity to change bullet-points to squares */
 .hobbies ul > li {
   width: 400px;
   list-style-type: square;
@@ -153,6 +179,7 @@ header ul li a {
   margin-left: 2em;
 }
 
+/** Footer containing copyright acknowledgement and contact details which are centered. */
 footer {
   background-color: #1F2937;
   display: flex;
@@ -163,6 +190,8 @@ footer {
   color: #f9faf8;
 }
 
+
+/** Generic no-decoration CSS (could use Tailwind CSS for these types of declarations instead) */
 .no-decoration a {
   text-decoration: none;
   color: #f9faf8;
@@ -198,6 +227,7 @@ footer {
   text-decoration: solid underline red 4px;
 }
 
+/** Navigation bar button style */
 .button {
   background-color: #3882f6; /* Blue */
   border: none;
@@ -210,6 +240,7 @@ footer {
   font-size: 18px;
 }
 
+/** Displays the current page the viewer is on by highlighting the relevant button from the rest */
 .button-current {
   background-color: #fca70c; /* Orange */
   border: none;
@@ -220,4 +251,14 @@ footer {
   font-weight: 700;
   border-radius: 24px;
   font-size: 18px;
+}
+
+/** Resume page table style */
+table, th, td {
+  border: 1px solid black;
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 5px;
 }
