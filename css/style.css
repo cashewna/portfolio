@@ -263,6 +263,20 @@ th, td {
   padding: 5px;
 }
 
+th {
+  background-color:#355c7d;
+  color:#ffffff;
+  font-weight:bold;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #d6ecff;
+}
+
+tr:nth-of-type(even) {
+  background-color: #aec4ea;
+}
+
 /** Scrolls the user back to top of the page */
 .back-to-top {
   position: fixed;
