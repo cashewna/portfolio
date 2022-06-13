@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /** Universal Selector */
 * {
   margin: 0;
@@ -307,6 +310,14 @@ tr:nth-of-type(even) {
 /** Change opacity of back-to-top button on hover */
 .back-to-top:hover {
   opacity: 60%;
+}
+
+.about-intro {
+  font-size: larger;
+}
+
+.about-intro-extended {
+  font-size: large;
 }
 
 /** Responsive design - shrink down elements to fit max-width of 1024px */
