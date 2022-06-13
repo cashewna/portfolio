@@ -604,48 +604,18 @@ video {
   display: none;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .font-bold {
   font-weight: 700;
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-green-500 {
-  --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -1003,6 +973,36 @@ tr:nth-of-type(even) {
 
 .about-intro-extended {
   font-size: large;
+}
+
+.card {
+  background-color: white;
+  height: 120px;
+  display: flex;
+  align-content: center;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.card-img img {
+  max-height: 100px;
+  float: left;
+}
+
+.card-contents {
+  padding-left: 32px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-description {
 }
 
 /** Responsive design - shrink down elements to fit max-width of 1024px */
