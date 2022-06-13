@@ -332,4 +332,15 @@ tr:nth-of-type(even) {
     width: 50%;
     padding-left: 60px;
   }
+
+  .professional-interests, .hobbies {
+    height: 50vh;
+    align-items: center;
+    padding: 100px;
+  }
+
+  .hobbies ul > li {
+    width: 250px;
+    list-style-type: square;
+  }
 }
