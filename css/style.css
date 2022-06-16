@@ -380,7 +380,7 @@ tr:nth-of-type(even) {
   position: relative;
   width: 20rem;
   height: 3rem;
-  margin: 50px;
+  margin: 25px;
 }
 
 .form .form_input {
@@ -396,31 +396,43 @@ tr:nth-of-type(even) {
   background: none;
 }
 
+/* Change border when input hover */
 .form_input:hover {
   border-color: #1F2937;
 }
 
+/* Change border when input focus */
 .form_input:focus {
-  border-color: #white;
+  border-color: #0f528a;
+  border: 2px solid;
 }
+
 
 .form .form_label {
   position: absolute;
   left: 1rem;
   top: 1.2rem;
-  padding: 0 0.5rem;
+  padding: 0 0.2rem;
   cursor: text;
   transition: top 200ms ease-in,
     left 200ms ease-in,
     font-size 200ms ease-in;
+  background-color: #ffe4c4;
+  color: grey;
 }
 
+/* 
+1. When the form input is in focus state, reduce the size of the form label and move upwards
+2. Keep form label state when content is in input field. */
 .form_input:focus ~ .form_label,
 .form_input:not(:placeholder-shown).form_input:not(:focus) ~ .form_label {
   top: -0.5rem;
   font-size: 0.8rem;
   left: 0.8rem;
+  font-weight: bold;
+  color: black;
 }
+
 /** Responsive design - shrink down elements to fit max-width of 1024px */
 @media screen and (max-width: 1024px) {
   header .header-logo {
