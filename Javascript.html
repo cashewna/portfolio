@@ -10,7 +10,7 @@
     <link rel="stylesheet" media="screen" href="css/style.css" />
     <link rel="stylesheet" media="print" href="css/print.css">
   </head>
-  <body>
+  <body onload="welcomeMessage()">
 
     <!--Navigation Bar-->
 
@@ -32,22 +32,76 @@
       </nav>
     </header>
 
+    <script>
+      // On page load, alert user with welcome message.
+      function welcomeMessage() {
+        alert("Welcome to the King's Music Store - Newsletter Sign Up!");
+      }
+
+      // Validate form on submit. Uses let instead of var for scope as var is global.
+      function validateForm() {
+        let firstName = document.forms["signup"]["first_name"].value;
+        let lastName = document.forms["signup"]["last_name"].value;
+        let email = document.forms["signup"]["email"].value;
+
+        if (firstName == "") {
+          alert("Please enter your first name.");
+          return false;
+        }
+        if (lastName == "") {
+          alert("Please enter your last name.");
+          return false;
+        }
+        if (email == "") {
+          alert("Please enter your email.");
+          return false;
+        }
+      }
+    </script>
+
     <!--Body-->
     <main class="about-main">
       <div class="about-container">
-        <h1>King's Music Store</h1>
-          <form action="/" method="GET">
+        <h2>King's Music Store Newsletter Sign Up</h2>
+          <form action="http://csusap.csu.edu.au/cgi-bin/echo_form" id="signup" method="post" onsubmit="return validateForm()">
             <div class="form">
-              <input class="form_input" autocomplete="off" id="first_name" name="first_name" type="text" placeholder=" ">
+              <input class="form_input" autocomplete="off" id="first_name" name="first_name" type="text" placeholder=" " maxlength="60">
               <label class="form_label" for="first_name">First Name</label>
             </div>
             <div class="form">
-              <input class="form_input" autocomplete="off" id="last_name" name="last_name" type="text" placeholder=" ">
+              <input class="form_input" autocomplete="off" id="last_name" name="last_name" type="text" placeholder=" " maxlength="60">
               <label class="form_label" for="last_name">Last Name</label>
             </div>
             <div class="form">
-              <input class="form_input" autocomplete="off" id="email" name="email" type="text" placeholder=" ">
+              <input class="form_input" autocomplete="off" id="email" name="email" type="text" placeholder=" " maxlength="60">
               <label class="form_label" for="email">Email</label>
+            </div>
+            <div class="form form-age">
+              <p>What is your age?</p>
+              <input id="15-25" type="radio" name="age" value="15-25">&nbsp15-25
+              <input class="form_radio" id="26-35" type="radio" name="age" value="26-35">&nbsp26-35
+              <input class="form_radio" id="36-45" type="radio" name="age" value="36-45">&nbsp36-45
+              <input class="form_radio" id="46-55" type="radio" name="age" value="46-55">&nbsp46-55
+              <input class="form_radio" id="55+" type="radio" name="age" value="55+">&nbsp55+
+            </div>
+
+            <div class="form form-genre">
+              <p>Which genre(s) of music do you like?</p>
+              <input type="checkbox" name="heavymetal" id="heavymetal" value="yes">Heavy Metal<br>
+              <input type="checkbox" name="countrywestern" id="countrywestern" value="yes">Country & Western<br>
+              <input type="checkbox" name="classical" id="classical" value="yes">Classical<br>
+              <input type="checkbox" name="rockroll" id="rockroll" value="yes">Rock & Roll<br>
+              <input type="checkbox" name="pop" id="pop" value="yes">Pop<br>
+              <input type="checkbox" name="folk" id="folk" value="yes">Folk<br>
+              <input type="checkbox" name="blues" id="blues" value="yes">Blues<br>
+              <input type="checkbox" name="jazz" id="jazz" value="yes">Jazz<br>
+              <input type="checkbox" name="disco" id="disco" value="yes">Disco<br>
+              <input type="checkbox" name="opera" id="opera" value="yes">Opera<br>
+              <textarea name="comments" id="comments" placeholder="Additional comments" 
+                 cols="60" rows="3"></textarea>
+
+              <input type="reset" id="reset" value="Reset Form"/>
+              <input type="submit" id="submit" value="Submit"/>
             </div>
           </form>
         

@@ -860,6 +860,7 @@ footer {
   border: solid #fca70c 5px;
   background-color: bisque;
   padding: 60px;
+  overflow: auto;
 }
 
 .about-container h1 {
@@ -1105,6 +1106,35 @@ tr:nth-of-type(even) {
   left: 0.8rem;
   font-weight: bold;
   color: black;
+}
+
+.form_radio {
+  margin-left: 10px;
+}
+
+.form-age {
+  width: 100%;
+}
+
+input[type=checkbox],
+textarea {
+  margin: 5px;
+}
+
+.form-genre {
+  width: 100%;
+}
+
+#reset, #submit
+{
+  padding: 2%;
+  width: 100px;
+  background-color: #3882f6;
+  border-radius: 10px;
+}
+
+#reset {
+  margin-right: 275px;
 }
 
 /** Responsive design - shrink down elements to fit max-width of 1024px */
