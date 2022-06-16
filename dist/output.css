@@ -628,9 +628,11 @@ video {
           text-decoration-line: underline;
 }
 
-/** Universal Selector */
+/** Allows us to have complete control over element spacing */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -660,7 +662,7 @@ header .header-logo {
   height: 100%;
   width: auto;
   margin-left: 100px;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 /** List will hide the default bullet points and will be aligned to the right of the header */
@@ -882,6 +884,7 @@ footer {
 .button {
   background-color: #3882f6;
   /* Blue */
+  box-shadow: 2px 2px black;
   border: none;
   color: white;
   margin: 8px;
@@ -897,6 +900,10 @@ footer {
 .button-current {
   background-color: #fca70c;
   /* Orange */
+  box-shadow:               /* Gradient shadow glow */
+  -10px 0 30px #111e6c,        /* outer left navy blue */
+  5px 0 30px #0f528a;
+  /* outer right sapphire blue */
   border: none;
   color: white;
   margin: 8px;
@@ -905,6 +912,19 @@ footer {
   font-weight: 700;
   border-radius: 24px;
   font-size: 18px;
+}
+
+.glow {
+  color: #fff;
+  text-shadow:
+    0 0 7px #111e6c,
+    0 0 10px #111e6c,
+    0 0 21px #111e6c,
+    0 0 42px #0f528a,
+    0 0 82px #0f528a,
+    0 0 92px #0f528a,
+    0 0 102px #0f528a,
+    0 0 151px #0f528a;
 }
 
 /** Resume page table style */
@@ -975,12 +995,16 @@ tr:nth-of-type(even) {
   font-size: large;
 }
 
+.card-container {
+  width:100%;
+}
+
 .card {
   background-color: white;
-  height: 120px;
+  height: 150px;
   display: flex;
   align-content: center;
-  padding: 10px;
+  padding: 20px;
   border-radius: 25px;
   cursor: pointer;
   flex-wrap: wrap;
@@ -989,13 +1013,15 @@ tr:nth-of-type(even) {
 .card-img img {
   max-height: 100px;
   float: left;
+  width: auto;
 }
 
 .card-contents {
   padding-left: 32px;
-  padding-top: 16px;
   display: flex;
   flex-direction: column;
+  width: 60%;
+  justify-content: center;
 }
 
 .card-title {
@@ -1003,6 +1029,65 @@ tr:nth-of-type(even) {
 }
 
 .card-description {
+  padding-top: 8px;
+}
+
+.form {
+  position: relative;
+  width: 20rem;
+  height: 3rem;
+  margin: 50px;
+}
+
+.form .form_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fca70c;
+  border-radius: 10px;
+  color: black;
+  padding: 1.25rem;
+  background: none;
+}
+
+.form_input:hover {
+  border-color: #1F2937;
+}
+
+.form_input:focus {
+  border-color: #white;
+}
+
+.form .form_label {
+  position: absolute;
+  left: 1rem;
+  top: 1.2rem;
+  padding: 0 0.5rem;
+  cursor: text;
+  transition: top 200ms ease-in,
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+}
+
+.form_input:not(:-moz-placeholder-shown).form_input:not(:focus) ~ .form_label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.form_input:not(:-ms-input-placeholder).form_input:not(:focus) ~ .form_label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.form_input:focus ~ .form_label,
+.form_input:not(:placeholder-shown).form_input:not(:focus) ~ .form_label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
 }
 
 /** Responsive design - shrink down elements to fit max-width of 1024px */

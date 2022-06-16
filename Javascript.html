@@ -4,40 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Krishna R Khong</title>
-    <!--Stylesheets. One for normal viewing and one for print view.-->
-    <link rel="stylesheet" media="screen" href="dist/output.css" />
-    <link rel="stylesheet" media="print" href="css/print.css">
+    <title>King's Music Store</title>
 
+    <!--Stylesheets. One for normal viewing and one for print view.-->
+    <link rel="stylesheet" media="screen" href="css/style.css" />
+    <link rel="stylesheet" media="print" href="css/print.css">
   </head>
   <body>
+
+    <!--Navigation Bar-->
+
+    <!--.no-print removes the header from print view-->
     <header class="no-print">
+
       <div class="header-logo">
         <img src="images/logo.png" alt="header-logo" width="102" />
       </div>
+
+      <!--Navigation Links-->
       <nav>
         <ul>
           <li class="button"><a href="index.html">Home</a></li>
           <li class="button"><a href="about.html">About</a></li>
           <li class="button"><a href="resume.html">Resume</a></li>
-          <li class="button-current"><a href="web_skills.html">Web Skills</a></li>
+          <li class="button"><a href="web_skills.html">Web Skills</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="kings-music-store-main">
+    <!--Body-->
+    <main class="about-main">
       <div class="about-container">
-        <h1 class="text-3xl font-bold">King's Music Store</h1>
-        <br>
+        <h1>King's Music Store</h1>
+          <form action="/" method="GET">
+            <div class="form">
+              <input class="form_input" autocomplete="off" id="first_name" name="first_name" type="text" placeholder=" ">
+              <label class="form_label" for="first_name">First Name</label>
+            </div>
+            <div class="form">
+              <input class="form_input" autocomplete="off" id="last_name" name="last_name" type="text" placeholder=" ">
+              <label class="form_label" for="last_name">Last Name</label>
+            </div>
+            <div class="form">
+              <input class="form_input" autocomplete="off" id="email" name="email" type="text" placeholder=" ">
+              <label class="form_label" for="email">Email</label>
+            </div>
+          </form>
         
-
-        </div>
       </div>
     </main>
 
     <footer>
       <p>Copyright &copy; Krishna R Khong</p>
-      <p class="no-decoration"><a href="mailto:krishnakhong@gmai.com">krishnakhong@gmail.com</a></p>
+      <p class="no-decoration"><a href="mailto:krishnakhong@gmail.com">krishnakhong@gmail.com</a></p>
     </footer>
   </body>
+
 </html>
