@@ -236,7 +236,7 @@ footer {
 
 /** Navigation bar button style */
 .button {
-  background-color: #3882f6; /* Blue */
+  background-color: #3882f6;
   box-shadow: 2px 2px black;
   border: none;
   color: white;
@@ -246,6 +246,7 @@ footer {
   font-weight: 700;
   border-radius: 24px;
   font-size: 18px;
+  transition: all .5s ease;
 }
 
 /** Displays the current page the viewer is on by highlighting the relevant button from the rest */
@@ -264,6 +265,13 @@ footer {
   font-size: 18px;
 }
 
+/* CSS button hover transitions */
+.button:hover {
+  background-color: #2055e2;
+  transform: scale(1.08) perspective(1px);
+}
+
+/* Applied to button-current. Adds glow effect behind current button. */
 .glow {
   color: #fff;
   text-shadow:
@@ -281,6 +289,19 @@ footer {
 table, th, td {
   border: 1px solid black;
   white-space: nowrap;
+  width: 100%;
+}
+
+.table_employment {
+  min-width: 375px;
+}
+
+.table_date {
+  min-width: 8rem;
+}
+
+.table_education {
+  min-width: 470px;
 }
 
 th, td {
@@ -451,12 +472,17 @@ textarea {
   width: 100%;
 }
 
-#reset, #submit
-{
+#reset, #submit {
+  transition: all .5s ease;
    padding: 2%;
    width: 100px;
    background-color: #3882f6;
    border-radius: 10px;
+}
+
+#reset:hover, #submit:hover {
+  background: #2055e2;
+  color: #fff;
 }
 
 #reset {

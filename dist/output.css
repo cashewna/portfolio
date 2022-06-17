@@ -681,6 +681,8 @@ header ul li a {
   color: #F9FAF8;
 }
 
+
+
 /** Introduction container will fill up the viewer's viewport (minus the navbar height) 
     flex will be used to align contents inside the container */
 
@@ -884,7 +886,6 @@ footer {
 
 .button {
   background-color: #3882f6;
-  /* Blue */
   box-shadow: 2px 2px black;
   border: none;
   color: white;
@@ -894,6 +895,7 @@ footer {
   font-weight: 700;
   border-radius: 24px;
   font-size: 18px;
+  transition: all .5s ease;
 }
 
 /** Displays the current page the viewer is on by highlighting the relevant button from the rest */
@@ -913,6 +915,12 @@ footer {
   font-weight: 700;
   border-radius: 24px;
   font-size: 18px;
+}
+
+/* CSS button hover transitions */
+.button:hover {
+  background-color: #2055e2;
+  transform: scale(1.08) perspective(1px);
 }
 
 .glow {
@@ -1001,6 +1009,7 @@ tr:nth-of-type(even) {
 }
 
 .card {
+  transition: all .5s ease;
   background-color: white;
   height: 150px;
   display: flex;
@@ -1009,6 +1018,11 @@ tr:nth-of-type(even) {
   border-radius: 25px;
   cursor: pointer;
   flex-wrap: wrap;
+}
+
+.card:hover {
+  box-shadow: 5px 5px #2055e2;
+  transform: scale(1.01) perspective(1px);
 }
 
 .card-img img {
@@ -1031,6 +1045,13 @@ tr:nth-of-type(even) {
 
 .card-description {
   padding-top: 8px;
+}
+
+.card-techstacks {
+  font-size: 12px;
+  color: #2055e2;
+  font-weight: 600;
+  padding-top: 12px;
 }
 
 .form {

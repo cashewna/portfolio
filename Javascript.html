@@ -73,7 +73,7 @@
               <label class="form_label" for="last_name">Last Name</label>
             </div>
             <div class="form">
-              <input class="form_input" autocomplete="off" id="email" name="email" type="text" placeholder=" " maxlength="60">
+              <input class="form_input" autocomplete="off" id="email" name="email" type="email" placeholder=" " maxlength="60">
               <label class="form_label" for="email">Email</label>
             </div>
             <div class="form form-age">
@@ -99,8 +99,8 @@
               <input type="checkbox" name="opera" id="opera" value="yes">Opera<br>
               <textarea name="comments" id="comments" placeholder="Additional comments" 
                  cols="60" rows="3"></textarea>
-
-              <input type="reset" id="reset" value="Reset Form"/>
+                <!--Reset form confirmation-->
+              <input type="reset" id="reset" value="Reset Form" onclick="return confirm('Are you sure you want to clear the form?')"/>
               <input type="submit" id="submit" value="Submit"/>
             </div>
           </form>
