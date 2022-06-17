@@ -1020,6 +1020,10 @@ tr:nth-of-type(even) {
   flex-wrap: wrap;
 }
 
+.card_2 {
+  margin-top: 20px;
+}
+
 .card:hover {
   box-shadow: 5px 5px #2055e2;
   transform: scale(1.01) perspective(1px);
