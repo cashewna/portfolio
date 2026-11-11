@@ -86,7 +86,7 @@ export const projects = [
       'Server-rendered HTML that works without JavaScript, a small explicit status machine, and tests that cover every status transition.',
     stack: ['TypeScript', 'Node', 'PostgreSQL', 'Fastify'],
     demo: {
-      href: 'https://apps.khong.dev',
+      href: 'https://demo.ticket-queue.khong.dev',
       accounts: [
         { role: 'Requester', email: 'requester@example.com' },
         { role: 'Agent', email: 'agent@example.com' },
@@ -96,7 +96,7 @@ export const projects = [
     },
     links: [
       { label: 'GitHub', href: 'https://github.com/cashewna/ticket-queue' },
-      { label: 'Live demo', href: 'https://apps.khong.dev' },
+      { label: 'Live demo', href: 'https://demo.ticket-queue.khong.dev' },
     ],
   },
   {

@@ -100,7 +100,7 @@ const contentChecks = [
   [home.includes('https://github.com/cashewna/ticket-queue'), 'home: ticket-queue link'],
   [home.includes('https://github.com/cashewna/ai-eval-checker'), 'home: ai-eval-checker link'],
   [home.includes('https://github.com/cashewna/netregister'), 'home: netregister link'],
-  [home.includes('https://apps.khong.dev'), 'home: ticket-queue live URL'],
+  [home.includes('https://demo.ticket-queue.khong.dev'), 'home: ticket-queue live URL'],
   [home.includes('https://epi-trainer.khong.dev'), 'home: epi-trainer live URL'],
   [home.includes('Password-gated live demo'), 'home: epi-trainer access note'],
   [home.includes('demo-pass-123'), 'home: demo password'],
