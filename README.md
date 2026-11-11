@@ -8,7 +8,22 @@ Live URLs (after deployment):
 - <https://portfolio.khong.dev> — portfolio
 - <https://portfolio.khong.dev/discord/tos> — Discord bot Terms of Service
 - <https://portfolio.khong.dev/discord/privacy> — Discord bot Privacy Policy
-- <https://apps.khong.dev> — Relay Desk (ticket-queue) live demo
+- <https://apps.khong.dev> — Relay Desk live demo
+- <https://epi-trainer.khong.dev> — EPI Trainer (password-gated; source private)
+
+## Relay Desk demo
+
+`apps.khong.dev` runs Relay Desk with the app's seeded demo data. The login page
+shows the non-production accounts; they are also listed on the portfolio card:
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Requester | `requester@example.com` | `demo-pass-123` |
+| Agent | `agent@example.com` | `demo-pass-123` |
+
+The demo queue is public and shared. Anyone can change the data, so do not enter
+personal information. These credentials are deliberately obvious and must not
+be reused outside the demo.
 
 ## Stack
 

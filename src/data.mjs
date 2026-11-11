@@ -85,9 +85,32 @@ export const projects = [
     detail:
       'Server-rendered HTML that works without JavaScript, a small explicit status machine, and tests that cover every status transition.',
     stack: ['TypeScript', 'Node', 'PostgreSQL', 'Fastify'],
+    demo: {
+      href: 'https://apps.khong.dev',
+      accounts: [
+        { role: 'Requester', email: 'requester@example.com' },
+        { role: 'Agent', email: 'agent@example.com' },
+      ],
+      password: 'demo-pass-123',
+      note: 'Public demo: the queue is shared and anyone can change it. Do not enter personal information.',
+    },
     links: [
       { label: 'GitHub', href: 'https://github.com/cashewna/ticket-queue' },
       { label: 'Live demo', href: 'https://apps.khong.dev' },
+    ],
+  },
+  {
+    name: 'EPI Trainer',
+    repo: 'epi-trainer',
+    kicker: 'Study console',
+    description:
+      'A local study console for Elements of Programming Interviews in Java: a React workspace, a spaced-review scheduler and a Spring Boot judge that compiles and runs Java against the EPIJudge test data.',
+    detail:
+      'The statement, hint ladder, editor, timer and outcome stay on one page; the judge returns the first failing case with its input, expected value and actual value.',
+    stack: ['React 19', 'Vite', 'Spring Boot', 'Java 21'],
+    accessNote: 'Password-gated live demo. Ask me for access. Source is private.',
+    links: [
+      { label: 'Live demo', href: 'https://epi-trainer.khong.dev' },
     ],
   },
   {

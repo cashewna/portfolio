@@ -107,6 +107,12 @@ const projectCard = (project, index) => `
               <h3>${escapeHtml(project.name)}</h3>
               <p class="project-description">${escapeHtml(project.description)}</p>
               <p class="project-detail">${escapeHtml(project.detail)}</p>
+${project.accessNote ? `              <p class="project-access">${escapeHtml(project.accessNote)}</p>` : ''}
+${project.demo ? `              <div class="demo-box">
+                <p class="demo-box-title">Try the live demo</p>
+                <p>Sign in as <code>${escapeHtml(project.demo.accounts[0].email)}</code> or <code>${escapeHtml(project.demo.accounts[1].email)}</code> with <code>${escapeHtml(project.demo.password)}</code>.</p>
+                <p class="demo-box-note">${escapeHtml(project.demo.note)}</p>
+              </div>` : ''}
               <ul class="tags" aria-label="Stack">
 ${project.stack.map((tag) => `                <li>${escapeHtml(tag)}</li>`).join('\n')}
               </ul>
@@ -173,7 +179,7 @@ ${experience.map(experienceItem).join('\n')}
         </section>
 
         <section class="section" id="projects" aria-labelledby="projects-title">${sectionHead('03', 'Selected projects')}
-          <p class="section-intro">Small, complete systems with tests, documentation and a clear boundary around what they do. Each one links to its public repository.</p>
+          <p class="section-intro">Small, complete systems with tests, documentation and a clear boundary around what they do. Each card links to a public repository or a live deployment.</p>
           <div class="project-grid">
 ${projects.map(projectCard).join('\n')}
           </div>

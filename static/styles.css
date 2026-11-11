@@ -547,7 +547,7 @@ ul {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -608,6 +608,54 @@ ul {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.55;
+}
+
+.project-access {
+  margin-top: 0.55rem;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.demo-box {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  background: var(--accent-wash);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.demo-box-title {
+  margin-bottom: 0.3rem;
+  color: var(--accent-deep);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.demo-box p {
+  color: var(--ink-soft);
+}
+
+.demo-box code {
+  padding: 0.08rem 0.3rem;
+  color: var(--ink);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.demo-box-note {
+  margin-top: 0.45rem;
+  color: var(--faint);
+  font-size: 0.74rem;
 }
 
 .tags {
@@ -973,7 +1021,7 @@ ul {
   }
 
   .project-card:last-child {
-    grid-column: span 2;
+    grid-column: auto;
   }
 }
 
