@@ -108,9 +108,10 @@ export const projects = [
     detail:
       'The statement, hint ladder, editor, timer and outcome stay on one page; the judge returns the first failing case with its input, expected value and actual value.',
     stack: ['React 19', 'Vite', 'Spring Boot', 'Java 21'],
-    accessNote: 'Password-gated live demo. Ask me for access. Source is private.',
+    accessNote: 'Read-only public demo. Run and full access are password-gated.',
     links: [
       { label: 'Live demo', href: 'https://epi-trainer.khong.dev' },
+      { label: 'Full access', href: 'https://epi-trainer-auth.khong.dev' },
     ],
   },
   {

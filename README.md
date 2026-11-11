@@ -9,7 +9,8 @@ Live URLs (after deployment):
 - <https://portfolio.khong.dev/discord/tos> — Discord bot Terms of Service
 - <https://portfolio.khong.dev/discord/privacy> — Discord bot Privacy Policy
 - <https://demo.ticket-queue.khong.dev> — Relay Desk live demo
-- <https://epi-trainer.khong.dev> — EPI Trainer (password-gated; source private)
+- <https://epi-trainer.khong.dev> — EPI Trainer (read-only public demo)
+- <https://epi-trainer-auth.khong.dev> — EPI Trainer full editor/judge (basic auth)
 
 ## Relay Desk demo
 
