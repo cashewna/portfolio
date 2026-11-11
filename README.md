@@ -22,8 +22,9 @@ shows the non-production accounts; they are also listed on the portfolio card:
 | Agent | `agent@example.com` | `demo-pass-123` |
 
 The demo queue is public and shared. Anyone can change the data, so do not enter
-personal information. These credentials are deliberately obvious and must not
-be reused outside the demo.
+personal information. A CronJob truncates and reseeds the database every 30
+minutes, including the private maintenance account. These credentials are
+deliberately obvious and must not be reused outside the demo.
 
 ## Stack
 

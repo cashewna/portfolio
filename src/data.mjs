@@ -92,7 +92,7 @@ export const projects = [
         { role: 'Agent', email: 'agent@example.com' },
       ],
       password: 'demo-pass-123',
-      note: 'Public demo: the queue is shared and anyone can change it. Do not enter personal information.',
+      note: 'Public demo: the queue is shared, anyone can change it, and it resets every 30 minutes. Do not enter personal information.',
     },
     links: [
       { label: 'GitHub', href: 'https://github.com/cashewna/ticket-queue' },
