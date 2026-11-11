@@ -1,0 +1,16 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Krishna Khong's portfolio and Discord bot legal pages",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "check": "node src/build.mjs && node scripts/check.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node src/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
