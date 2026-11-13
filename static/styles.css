@@ -826,15 +826,16 @@ ul {
 .contact {
   margin: clamp(1rem, 4vw, 3rem) 0 0;
   padding: clamp(2rem, 6vw, 4.5rem);
-  color: var(--panel-ink);
+  color: var(--ink);
   background:
-    radial-gradient(700px 380px at 92% 0%, rgba(201, 79, 44, 0.35), transparent 65%),
-    var(--panel);
+    radial-gradient(700px 380px at 92% 0%, var(--accent-wash), transparent 65%),
+    var(--paper-raised);
+  border: 1px solid var(--line);
   border-radius: calc(var(--radius) + 6px);
 }
 
 .contact-label {
-  color: color-mix(in srgb, var(--panel-ink) 76%, transparent);
+  color: var(--accent-deep);
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.13em;
@@ -854,7 +855,7 @@ ul {
 .contact-copy {
   max-width: 52ch;
   margin-top: 1.2rem;
-  color: color-mix(in srgb, var(--panel-ink) 84%, transparent);
+  color: var(--ink-soft);
   font-size: 1rem;
 }
 
@@ -867,26 +868,26 @@ ul {
 }
 
 .contact-mail {
-  color: var(--panel-ink);
+  color: var(--ink);
   font-family: var(--serif);
   font-size: clamp(1.35rem, 3.4vw, 2.15rem);
   letter-spacing: -0.02em;
-  text-decoration-color: color-mix(in srgb, var(--panel-ink) 40%, transparent);
+  text-decoration-color: var(--line-strong);
 }
 
 .contact-mail:hover {
-  color: #ffb59d;
+  color: var(--accent-deep);
 }
 
 .contact .button-quiet {
-  color: var(--panel-ink);
-  border-color: color-mix(in srgb, var(--panel-ink) 30%, transparent);
+  color: var(--ink);
+  border-color: var(--line-strong);
 }
 
 .contact .button-quiet:hover {
-  color: var(--panel);
-  background: var(--panel-ink);
-  border-color: var(--panel-ink);
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-color: var(--ink);
 }
 
 /* Legal */
