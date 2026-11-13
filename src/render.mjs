@@ -25,8 +25,15 @@ const nav = () => `
         <a href="/#skills">Skills</a>
         <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
           <span class="theme-switch-track" aria-hidden="true">
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M12.6 3.4l-1.1 1.1M4.5 11.5l-1.1 1.1"/></svg>
-            <svg class="theme-icon theme-icon-moon" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 10.1A5.5 5.5 0 0 1 5.9 2.8a5.5 5.5 0 1 0 7.3 7.3Z"/></svg>
+            <svg class="theme-icon theme-icon-day" viewBox="0 0 24 18" width="18" height="14" fill="currentColor">
+              <circle cx="15.5" cy="7" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M15.5 1.2v1.3M15.5 11.5v1.3M9.7 7H11M20 7h1.3M11.4 2.9l.9.9M18.7 10.2l.9.9M19.6 2.9l-.9.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M5.5 15.5h8.2a2.8 2.8 0 0 0 .3-5.6 4.1 4.1 0 0 0-7.8-1A3.1 3.1 0 0 0 5.5 15.5Z"/>
+            </svg>
+            <svg class="theme-icon theme-icon-night" viewBox="0 0 24 18" width="18" height="14" fill="currentColor">
+              <path d="M13.8 3.2a5.8 5.8 0 1 0 5.6 9.8 4.6 4.6 0 0 1-5.6-9.8Z"/>
+              <path d="M18.2 3.2l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4ZM19.5 10.2l.3.9.9.3-.9.3-.3.9-.3-.9-.9-.3.9-.3.3-.9ZM10 2.5l.3.8.8.3-.8.3-.3.8-.3-.8-.8-.3.8-.3.3-.8Z"/>
+            </svg>
             <span class="theme-switch-thumb"></span>
           </span>
         </button>

@@ -23,16 +23,16 @@
   "selfCritique": "Immediately signals software and systems engineering credibility: tight metadata rails, crisp 4px geometry, and high-contrast slate surfaces suited for architecture diagrams and terminal previews.",
   "tokens": {
     "color": {
-      "bg": { "$type": "color", "$value": "#0D1014" },
-      "surface": { "$type": "color", "$value": "#141920" },
-      "text": { "$type": "color", "$value": "#F1F4F8" },
-      "text-muted": { "$type": "color", "$value": "#9AA5B4" },
-      "border": { "$type": "color", "$value": "#27303D" },
-      "accent": { "$type": "color", "$value": "#2DD4BF" },
-      "on-accent": { "$type": "color", "$value": "#081C1B" },
-      "danger": { "$type": "color", "$value": "#F87171" },
-      "success": { "$type": "color", "$value": "#34D399" },
-      "focus": { "$type": "color", "$value": "#2DD4BF" }
+      "bg": { "$type": "color", "$value": "#0B101B" },
+      "surface": { "$type": "color", "$value": "#111827" },
+      "text": { "$type": "color", "$value": "#D9D7CE" },
+      "text-muted": { "$type": "color", "$value": "#8A94A6" },
+      "border": { "$type": "color", "$value": "#1E293B" },
+      "accent": { "$type": "color", "$value": "#FFA759" },
+      "on-accent": { "$type": "color", "$value": "#070B13" },
+      "danger": { "$type": "color", "$value": "#F28779" },
+      "success": { "$type": "color", "$value": "#BAE67E" },
+      "focus": { "$type": "color", "$value": "#FFCC66" }
     },
     "font": {
       "family": {
