@@ -19,7 +19,7 @@
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   --max: 1180px;
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --radius: 14px;
+  --radius: 8px;
   --shadow: 0 1px 0 rgba(20, 22, 26, 0.05), 0 28px 60px -34px rgba(20, 22, 26, 0.45);
 }
 
@@ -196,7 +196,7 @@ ul {
   padding: 0.48rem 0.9rem;
   color: var(--ink);
   border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  border-radius: 6px;
 }
 
 .site-nav .nav-email:hover {
@@ -258,11 +258,12 @@ ul {
   align-items: center;
   justify-content: center;
   min-height: 2.85rem;
-  padding: 0.7rem 1.15rem;
+  padding: 0.7rem 1.2rem;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 0.92rem;
   font-weight: 600;
+  text-align: center;
   text-decoration: none;
   transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
@@ -696,7 +697,7 @@ ul {
   padding: 0.18rem 0.55rem;
   color: var(--muted);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 5px;
   font-family: var(--mono);
   font-size: 0.65rem;
 }
