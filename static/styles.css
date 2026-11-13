@@ -59,6 +59,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
   color: var(--ink);
   background:
     radial-gradient(1100px 620px at 88% -12%, var(--accent-wash), transparent 62%),
@@ -294,6 +295,10 @@ ul {
   padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem);
 }
 
+.hero>* {
+  min-width: 0;
+}
+
 .eyebrow {
   color: var(--accent-deep);
   font-family: var(--mono);
@@ -400,7 +405,7 @@ ul {
 
 .facts>div {
   display: grid;
-  grid-template-columns: 5.8rem 1fr;
+  grid-template-columns: 5.8rem minmax(0, 1fr);
   gap: 0.6rem;
   align-items: baseline;
   padding-bottom: 0.9rem;
@@ -621,6 +626,7 @@ ul {
 .project-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   padding: 1.45rem;
   background: var(--paper-raised);
   border: 1px solid var(--line);
@@ -636,9 +642,10 @@ ul {
 
 .project-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.7rem;
+  gap: 0.4rem 0.7rem;
   margin-bottom: 1.15rem;
 }
 
@@ -678,6 +685,7 @@ ul {
 }
 
 .project-preview {
+  min-width: 0;
   margin-top: 1rem;
   padding: 0.75rem 0.9rem;
   background: var(--paper);
@@ -697,6 +705,7 @@ ul {
 
 .project-preview pre {
   margin: 0;
+  max-width: 100%;
   overflow-x: auto;
   font-family: var(--mono);
   font-size: 0.74rem;
@@ -876,6 +885,7 @@ ul {
   font-size: clamp(1.35rem, 3.4vw, 2.15rem);
   letter-spacing: -0.02em;
   text-decoration-color: var(--line-strong);
+  overflow-wrap: anywhere;
 }
 
 .contact-mail:hover {
@@ -1093,7 +1103,7 @@ ul {
 
 @media (max-width: 980px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero-card {
@@ -1126,12 +1136,13 @@ ul {
 
   .job,
   .education {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.6rem;
   }
 
   .job-meta {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.8rem;
     align-items: baseline;
   }
@@ -1148,7 +1159,7 @@ ul {
   }
 
   .project-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .project-card:last-child {
@@ -1156,7 +1167,11 @@ ul {
   }
 
   .skill-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .skill-group {
+    min-width: 0;
   }
 
   .skill-group:nth-child(2) {
@@ -1164,7 +1179,7 @@ ul {
   }
 
   .site-footer {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .footer-links {
@@ -1178,8 +1193,33 @@ ul {
 }
 
 @media (max-width: 460px) {
+  .page {
+    width: calc(100% - 2rem);
+  }
+
+  .site-nav {
+    gap: 0.5rem 0.7rem;
+  }
+
   .hero h1 {
     font-size: clamp(2rem, 9.6vw, 3.2rem);
+  }
+
+  .hero-card {
+    padding: 1.25rem;
+  }
+
+  .facts>div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .project-card {
+    padding: 1.15rem;
+  }
+
+  .contact {
+    padding: 1.5rem;
   }
 
   .hero-actions .button {
