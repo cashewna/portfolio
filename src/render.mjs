@@ -25,12 +25,12 @@ const nav = () => `
         <a href="/#skills">Skills</a>
         <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
           <span class="theme-switch-track" aria-hidden="true">
-            <svg class="theme-icon theme-icon-day" viewBox="0 0 24 18" width="18" height="14" fill="currentColor">
+            <svg class="theme-icon theme-icon-day" viewBox="1 0 22 17" width="18" height="14" fill="currentColor">
               <circle cx="15.5" cy="7" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/>
               <path d="M15.5 1.2v1.3M15.5 11.5v1.3M9.7 7H11M20 7h1.3M11.4 2.9l.9.9M18.7 10.2l.9.9M19.6 2.9l-.9.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
               <path d="M5.5 15.5h8.2a2.8 2.8 0 0 0 .3-5.6 4.1 4.1 0 0 0-7.8-1A3.1 3.1 0 0 0 5.5 15.5Z"/>
             </svg>
-            <svg class="theme-icon theme-icon-night" viewBox="0 0 24 18" width="18" height="14" fill="currentColor">
+            <svg class="theme-icon theme-icon-night" viewBox="5 1 18 16" width="18" height="14" fill="currentColor">
               <path d="M13.8 3.2a5.8 5.8 0 1 0 5.6 9.8 4.6 4.6 0 0 1-5.6-9.8Z"/>
               <path d="M18.2 3.2l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4ZM19.5 10.2l.3.9.9.3-.9.3-.3.9-.3-.9-.9-.3.9-.3.3-.9ZM10 2.5l.3.8.8.3-.8.3-.3.8-.3-.8-.8-.3.8-.3.3-.8Z"/>
             </svg>
@@ -97,13 +97,13 @@ const sectionHead = (number, title, id) => `
 const heroFacts = () => `
           <dl class="facts">
 ${hero.facts
-  .map(
-    (fact) => `            <div>
+    .map(
+      (fact) => `            <div>
               <dt>${escapeHtml(fact.label)}</dt>
               <dd>${escapeHtml(fact.value)}</dd>
             </div>`,
-  )
-  .join('\n')}
+    )
+    .join('\n')}
           </dl>`;
 
 const experienceItem = (job) => `
@@ -145,11 +145,11 @@ ${project.stack.map((tag) => `                <li>${escapeHtml(tag)}</li>`).join
               </ul>
               <p class="project-links">
 ${project.links
-  .map(
-    (link) =>
-      `                <a href="${link.href}"${link.href.startsWith('http') ? ' rel="noopener"' : ''}>${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
-  )
-  .join('\n')}
+    .map(
+      (link) =>
+        `                <a href="${link.href}"${link.href.startsWith('http') ? ' rel="noopener"' : ''}>${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
+    )
+    .join('\n')}
               </p>
             </article>`;
 
@@ -254,13 +254,13 @@ export const legalPage = (doc) =>
           </header>
           <div class="legal-body">
 ${doc.sections
-  .map(
-    (section) => `            <section>
+        .map(
+          (section) => `            <section>
               <h2>${escapeHtml(section.heading)}</h2>
 ${legalBlocks(section.blocks)}
             </section>`,
-  )
-  .join('\n')}
+        )
+        .join('\n')}
           </div>
           <aside class="legal-callout">
             <p><strong>Not affiliated with Discord.</strong> This bot is an independent project operated by ${escapeHtml(site.name)}. Discord’s own Terms of Service and Privacy Policy apply to your use of Discord.</p>

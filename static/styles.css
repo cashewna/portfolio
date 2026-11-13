@@ -223,7 +223,7 @@ ul {
   justify-content: space-between;
   width: 3.8rem;
   height: 1.95rem;
-  padding: 0 0.42rem;
+  padding: 0 0.46rem;
   background: var(--paper-raised);
   border: 1.5px solid var(--ink);
   border-radius: 999px;
@@ -237,17 +237,20 @@ ul {
 .theme-icon {
   position: relative;
   z-index: 1;
+  display: block;
+  flex-shrink: 0;
   transition: opacity 200ms ease, transform 240ms ease, color 220ms ease;
 }
 
 .theme-switch-thumb {
   position: absolute;
-  top: 0.2rem;
-  right: 0.22rem;
+  top: 50%;
+  left: 0.22rem;
   width: 1.38rem;
   height: 1.38rem;
   background: var(--ink);
   border-radius: 50%;
+  transform: translate(1.79rem, -50%);
   transition: transform 260ms cubic-bezier(0.2, 0, 0, 1), background-color 220ms ease;
 }
 
@@ -267,7 +270,7 @@ ul {
 }
 
 :root[data-theme="dark"] .theme-switch-thumb {
-  transform: translateX(-1.8rem);
+  transform: translate(0, -50%);
   background: var(--ink);
 }
 
