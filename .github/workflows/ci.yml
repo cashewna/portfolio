@@ -1,0 +1,64 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm run check
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set short SHA
+        id: meta
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/arm64,linux/amd64
+          push: true
+          tags: |
+            ghcr.io/cashewna/portfolio:sha-${{ steps.meta.outputs.short_sha }}
+            ghcr.io/cashewna/portfolio:latest
+
+      - name: Bump tag in bee-gitops
+        if: ${{ secrets.BEE_GITOPS_TOKEN != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.BEE_GITOPS_TOKEN }}
+          SHORT_SHA: ${{ steps.meta.outputs.short_sha }}
+        run: |
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/cashewna/bee-gitops.git" /tmp/bee-gitops
+          cd /tmp/bee-gitops
+          sed -i "s|image: .*portfolio:.*|image: ghcr.io/cashewna/portfolio:sha-${SHORT_SHA}|" manifests/portfolio/deployment.yaml
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "chore(portfolio): bump image to sha-${SHORT_SHA}"
+            git push
+          fi
