@@ -239,7 +239,7 @@ ul {
 
 .hero-intro {
   max-width: 58ch;
-  margin-top: 1.7rem;
+  margin-top: 2rem;
   color: var(--ink-soft);
   font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   line-height: 1.65;
@@ -610,6 +610,33 @@ ul {
   line-height: 1.55;
 }
 
+.project-preview {
+  margin-top: 1rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.project-preview-title {
+  margin-bottom: 0.35rem;
+  color: var(--accent-deep);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.project-preview pre {
+  margin: 0;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 .project-access {
   margin-top: 0.55rem;
   color: var(--accent-deep);
@@ -754,7 +781,7 @@ ul {
 }
 
 .contact-label {
-  color: color-mix(in srgb, var(--panel-ink) 55%, transparent);
+  color: color-mix(in srgb, var(--panel-ink) 76%, transparent);
   font-family: var(--mono);
   font-size: 0.7rem;
   letter-spacing: 0.13em;
@@ -774,7 +801,7 @@ ul {
 .contact-copy {
   max-width: 52ch;
   margin-top: 1.2rem;
-  color: color-mix(in srgb, var(--panel-ink) 72%, transparent);
+  color: color-mix(in srgb, var(--panel-ink) 84%, transparent);
   font-size: 1rem;
 }
 
@@ -1027,18 +1054,17 @@ ul {
 
 @media (max-width: 760px) {
   .site-header {
+    flex-direction: column;
     align-items: flex-start;
+    gap: 0.9rem;
   }
 
   .site-nav {
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.55rem 0.9rem;
-    font-size: 0.8rem;
-  }
-
-  .site-nav a:not(.nav-email) {
-    display: none;
+    font-size: 0.82rem;
   }
 
   .job,

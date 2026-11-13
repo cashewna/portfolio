@@ -1,0 +1,77 @@
+{
+  "draft": "C",
+  "name": "Technical Blueprint",
+  "adjectives": ["structured", "monospace", "crisp", "grid-driven", "unambiguous"],
+  "antiAdjectives": ["playful", "soft-rounded", "ornamental"],
+  "axes": {
+    "displayType": "monospace",
+    "bodyType": "grotesque",
+    "baseUnit": 8,
+    "density": "comfortable",
+    "radius": 0,
+    "chroma": 0.45,
+    "accentHue": 224,
+    "borderWeight": "thick",
+    "motionMs": 120,
+    "scheme": "light"
+  },
+  "costs": [
+    "zero-radius and thick 2px rules can feel austere or utilitarian",
+    "monospace display headlines wrap earlier at 320px mobile width",
+    "cobalt accent is more conventional in developer tooling than terracotta"
+  ],
+  "selfCritique": "Reads like a specification or architectural blueprint: unmistakable technical intent, strong grid discipline, and zero visual fluff. Needs careful 320px headline sizing so monospace display text stays balanced.",
+  "tokens": {
+    "color": {
+      "bg": { "$type": "color", "$value": "#F7F8FA" },
+      "surface": { "$type": "color", "$value": "#FFFFFF" },
+      "text": { "$type": "color", "$value": "#101419" },
+      "text-muted": { "$type": "color", "$value": "#4E5663" },
+      "border": { "$type": "color", "$value": "#C5CCD6" },
+      "accent": { "$type": "color", "$value": "#1D4ED8" },
+      "on-accent": { "$type": "color", "$value": "#FFFFFF" },
+      "danger": { "$type": "color", "$value": "#B91C1C" },
+      "success": { "$type": "color", "$value": "#15803D" },
+      "focus": { "$type": "color", "$value": "#1D4ED8" }
+    },
+    "font": {
+      "family": {
+        "display": { "$type": "fontFamily", "$value": "ui-monospace, SFMono-Regular, Menlo, monospace" },
+        "body": { "$type": "fontFamily", "$value": "system-ui, -apple-system, Segoe UI, sans-serif" },
+        "mono": { "$type": "fontFamily", "$value": "ui-monospace, SFMono-Regular, Menlo, monospace" }
+      },
+      "size": {
+        "sm": { "$type": "dimension", "$value": "14px" },
+        "md": { "$type": "dimension", "$value": "16px" },
+        "lg": { "$type": "dimension", "$value": "20px" },
+        "xl": { "$type": "dimension", "$value": "26px" },
+        "display": { "$type": "dimension", "$value": "42px" }
+      }
+    },
+    "space": {
+      "1": { "$type": "dimension", "$value": "4px" },
+      "2": { "$type": "dimension", "$value": "8px" },
+      "3": { "$type": "dimension", "$value": "16px" },
+      "4": { "$type": "dimension", "$value": "24px" },
+      "6": { "$type": "dimension", "$value": "48px" }
+    },
+    "radius": {
+      "sm": { "$type": "borderRadius", "$value": "0px" },
+      "md": { "$type": "borderRadius", "$value": "0px" },
+      "lg": { "$type": "borderRadius", "$value": "0px" }
+    },
+    "border": {
+      "hairline": { "$type": "dimension", "$value": "1px" },
+      "thick": { "$type": "dimension", "$value": "2px" }
+    },
+    "motion": {
+      "fast": { "$type": "duration", "$value": "70ms" },
+      "base": { "$type": "duration", "$value": "120ms" },
+      "slow": { "$type": "duration", "$value": "200ms" },
+      "ease": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] }
+    },
+    "density": {
+      "row": { "$type": "dimension", "$value": "48px" }
+    }
+  }
+}

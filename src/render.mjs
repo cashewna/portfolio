@@ -65,10 +65,10 @@ ${body}
 </html>
 `;
 
-const sectionHead = (number, title) => `
+const sectionHead = (number, title, id) => `
         <div class="section-head">
           <p class="section-number">${number}</p>
-          <h2>${escapeHtml(title)}</h2>
+          <h2${id ? ` id="${escapeHtml(id)}"` : ''}>${escapeHtml(title)}</h2>
         </div>`;
 
 const heroFacts = () => `
@@ -107,6 +107,10 @@ const projectCard = (project, index) => `
               <h3>${escapeHtml(project.name)}</h3>
               <p class="project-description">${escapeHtml(project.description)}</p>
               <p class="project-detail">${escapeHtml(project.detail)}</p>
+${project.preview ? `              <div class="project-preview">
+                <p class="project-preview-title">${escapeHtml(project.preview.title)}</p>
+                <pre><code>${project.preview.lines.map((line) => escapeHtml(line)).join('\n')}</code></pre>
+              </div>` : ''}
 ${project.accessNote ? `              <p class="project-access">${escapeHtml(project.accessNote)}</p>` : ''}
 ${project.demo ? `              <div class="demo-box">
                 <p class="demo-box-title">Try the live demo</p>
@@ -155,17 +159,24 @@ ${hero.headlineLines.map((line) => `              <span>${escapeHtml(line)}</spa
           </div>
           <aside class="hero-card" aria-label="At a glance">
             <p class="card-label">At a glance</p>${heroFacts()}
-            <p class="card-status"><span class="status-dot" aria-hidden="true"></span> Open to graduate roles</p>
+            <p class="card-status"><span class="status-dot" aria-hidden="true"></span> Open to graduate SWE roles</p>
           </aside>
         </section>
 
-        <section class="section" id="about" aria-labelledby="about-title">${sectionHead('01', 'About')}
+        <section class="section" id="projects" aria-labelledby="projects-title">${sectionHead('01', 'Selected projects', 'projects-title')}
+          <p class="section-intro">Production-shaped systems with automated tests, explicit state machines, and clear boundaries. Each card links to a public repository or live deployment.</p>
+          <div class="project-grid">
+${projects.map(projectCard).join('\n')}
+          </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-title">${sectionHead('02', 'About', 'about-title')}
           <div class="prose">
 ${about.map((paragraph) => `            <p>${escapeHtml(paragraph)}</p>`).join('\n')}
           </div>
         </section>
 
-        <section class="section" id="experience" aria-labelledby="experience-title">${sectionHead('02', 'Experience')}
+        <section class="section" id="experience" aria-labelledby="experience-title">${sectionHead('03', 'Experience', 'experience-title')}
           <div class="timeline">
 ${experience.map(experienceItem).join('\n')}
           </div>
@@ -178,14 +189,7 @@ ${experience.map(experienceItem).join('\n')}
           </div>
         </section>
 
-        <section class="section" id="projects" aria-labelledby="projects-title">${sectionHead('03', 'Selected projects')}
-          <p class="section-intro">Small, complete systems with tests, documentation and a clear boundary around what they do. Each card links to a public repository or a live deployment.</p>
-          <div class="project-grid">
-${projects.map(projectCard).join('\n')}
-          </div>
-        </section>
-
-        <section class="section" id="skills" aria-labelledby="skills-title">${sectionHead('04', 'Skills')}
+        <section class="section" id="skills" aria-labelledby="skills-title">${sectionHead('04', 'Skills', 'skills-title')}
           <div class="skill-grid">
 ${skills.map(skillGroup).join('\n')}
           </div>

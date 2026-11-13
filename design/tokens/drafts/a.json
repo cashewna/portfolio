@@ -1,0 +1,77 @@
+{
+  "draft": "A",
+  "name": "Refined Editorial",
+  "adjectives": ["editorial", "warm", "technical", "quiet", "measured"],
+  "antiAdjectives": ["playful", "SaaS-template", "retail-first"],
+  "axes": {
+    "displayType": "serif",
+    "bodyType": "grotesque",
+    "baseUnit": 8,
+    "density": "spacious",
+    "radius": 14,
+    "chroma": 0.25,
+    "accentHue": 15,
+    "borderWeight": "hairline",
+    "motionMs": 160,
+    "scheme": "light"
+  },
+  "costs": [
+    "warm paper + serif reads more editorial than hardcore systems-engineering",
+    "spacious padding reduces above-the-fold project density on 1280px screens",
+    "requires careful visual framing so project previews feel integrated rather than pasted on"
+  ],
+  "selfCritique": "Preserves the existing brand identity while fixing mobile nav, grid balance, and visual proof slots. Strongest for human readability and differentiation; weakest if a reviewer expects a dark terminal aesthetic.",
+  "tokens": {
+    "color": {
+      "bg": { "$type": "color", "$value": "#F4F1EA" },
+      "surface": { "$type": "color", "$value": "#FBF9F4" },
+      "text": { "$type": "color", "$value": "#14161A" },
+      "text-muted": { "$type": "color", "$value": "#52555D" },
+      "border": { "$type": "color", "$value": "#DCD8CE" },
+      "accent": { "$type": "color", "$value": "#A63A1C" },
+      "on-accent": { "$type": "color", "$value": "#FBF9F4" },
+      "danger": { "$type": "color", "$value": "#8F2222" },
+      "success": { "$type": "color", "$value": "#2F6F6A" },
+      "focus": { "$type": "color", "$value": "#A63A1C" }
+    },
+    "font": {
+      "family": {
+        "display": { "$type": "fontFamily", "$value": "Iowan Old Style, Palatino, Georgia, serif" },
+        "body": { "$type": "fontFamily", "$value": "system-ui, -apple-system, Segoe UI, sans-serif" },
+        "mono": { "$type": "fontFamily", "$value": "ui-monospace, SFMono-Regular, Menlo, monospace" }
+      },
+      "size": {
+        "sm": { "$type": "dimension", "$value": "14px" },
+        "md": { "$type": "dimension", "$value": "16px" },
+        "lg": { "$type": "dimension", "$value": "20px" },
+        "xl": { "$type": "dimension", "$value": "28px" },
+        "display": { "$type": "dimension", "$value": "56px" }
+      }
+    },
+    "space": {
+      "1": { "$type": "dimension", "$value": "4px" },
+      "2": { "$type": "dimension", "$value": "8px" },
+      "3": { "$type": "dimension", "$value": "16px" },
+      "4": { "$type": "dimension", "$value": "24px" },
+      "6": { "$type": "dimension", "$value": "48px" }
+    },
+    "radius": {
+      "sm": { "$type": "borderRadius", "$value": "7px" },
+      "md": { "$type": "borderRadius", "$value": "10px" },
+      "lg": { "$type": "borderRadius", "$value": "14px" }
+    },
+    "border": {
+      "hairline": { "$type": "dimension", "$value": "1px" },
+      "thick": { "$type": "dimension", "$value": "2px" }
+    },
+    "motion": {
+      "fast": { "$type": "duration", "$value": "90ms" },
+      "base": { "$type": "duration", "$value": "160ms" },
+      "slow": { "$type": "duration", "$value": "260ms" },
+      "ease": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] }
+    },
+    "density": {
+      "row": { "$type": "dimension", "$value": "52px" }
+    }
+  }
+}

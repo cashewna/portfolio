@@ -1,33 +1,33 @@
 export const site = {
   name: 'Krishna Khong',
-  title: 'Krishna Khong — software and customer operations',
+  title: 'Krishna Khong — Software & Systems Engineering',
   description:
-    'Krishna Khong is a computer science student at UNSW and a customer-facing retail professional in Sydney, building careful software with TypeScript, Rust and SQL.',
+    'Krishna Khong is a UNSW Computer Science student building tested, production-shaped systems in TypeScript, Rust, Java and SQL, backed by software support and customer operations.',
   url: 'https://portfolio.khong.dev',
   email: 'krishna@khong.dev',
   github: 'https://github.com/cashewna',
   githubLabel: 'github.com/cashewna',
   location: 'Sydney, Australia',
-  updated: '12 November 2026',
+  updated: '13 November 2026',
 };
 
 export const hero = {
-  eyebrow: 'Sydney, Australia',
-  headlineLines: ['Customer-facing', 'by trade.', 'Systems-minded', 'by training.'],
+  eyebrow: 'Sydney, Australia · UNSW Computer Science',
+  headlineLines: ['A true master', 'is an eternal', 'student.'],
   intro:
-    'I am a computer science student at UNSW with five years in retail sales and a year in software support. I like work where clear communication and careful debugging matter equally.',
+    'Computer Science student at UNSW building tested systems in TypeScript, Rust, Java and SQL — from PostgreSQL service desks to ARP asset registers — backed by software support and five years of customer operations.',
   facts: [
-    { label: 'Studying', value: 'BSc Computer Science, UNSW' },
-    { label: 'Studied', value: '2023 — 2026' },
+    { label: 'Degree', value: 'BSc Computer Science, UNSW (2023 — 2026)' },
+    { label: 'Core stack', value: 'TypeScript, Rust, Java, C/C++, SQL' },
     { label: 'Based in', value: 'Sydney, Australia' },
-    { label: 'Open to', value: 'Graduate software and support roles' },
+    { label: 'Target', value: 'Graduate software & systems roles' },
   ],
 };
 
 export const about = [
-  'Most of my working life has been on a shop floor: listening to what a customer actually needs, explaining the options without jargon, and fixing the problem when the first answer is wrong. That habit carries into software. I read the error, reproduce the failure, and keep going until the cause is clear.',
-  'At university I have worked in C, C++, TypeScript/JavaScript and Rust. Outside coursework I build small, complete systems — a service-desk application with a real database and audit trail, an evaluation harness that runs without a network, and a Rust asset register with an allow-list it enforces in code.',
-  'I am looking for a graduate role where I can keep learning from people who care about the details, and where explaining technical work to non-technical people is part of the job rather than an afterthought.',
+  'I build small, complete systems with explicit state, real databases, and automated tests: a TypeScript and PostgreSQL service desk with an append-only audit trail, a Spring Boot Java study console, an offline LLM evaluation harness, and a Rust ARP asset register.',
+  'At UNSW I have worked across C, C++, Python, Java, TypeScript and Rust, writing unit, integration, and end-to-end test suites in GitHub Actions CI. Outside coursework, a year in software support and five years on the retail floor trained me to reproduce failures methodically and explain technical trade-offs without jargon.',
+  'I am looking for a graduate software engineering or systems role where correctness, maintainability, and clear communication with users matter equally.',
 ];
 
 export const experience = [
@@ -85,6 +85,13 @@ export const projects = [
     detail:
       'Server-rendered HTML that works without JavaScript, a small explicit status machine, and tests that cover every status transition.',
     stack: ['TypeScript', 'Node', 'PostgreSQL', 'Fastify'],
+    preview: {
+      title: 'State machine & queue',
+      lines: [
+        'OPEN -> TRIAGED -> IN_PROGRESS -> RESOLVED',
+        'PostgreSQL migrations · Fastify SSR · SLA clock',
+      ],
+    },
     demo: {
       href: 'https://demo.ticket-queue.khong.dev',
       accounts: [
@@ -108,6 +115,13 @@ export const projects = [
     detail:
       'The statement, hint ladder, editor, timer and outcome stay on one page; the judge returns the first failing case with its input, expected value and actual value.',
     stack: ['React 19', 'Vite', 'Spring Boot', 'Java 21'],
+    preview: {
+      title: 'Java 21 judge workspace',
+      lines: [
+        'Statement · Hint ladder · Editor · Timer',
+        'Returns first failing input, expected & actual',
+      ],
+    },
     accessNote: 'Read-only public demo. Run and full access are password-gated.',
     links: [
       { label: 'Live demo', href: 'https://epi-trainer.khong.dev' },
@@ -123,6 +137,13 @@ export const projects = [
     detail:
       'A deterministic rules baseline runs offline with no key and no dependencies; a provider interface leaves room for a live model without changing the scoring path.',
     stack: ['TypeScript', 'Zero dependencies', 'CI fixtures'],
+    preview: {
+      title: 'Offline golden-set eval',
+      lines: [
+        '$ node eval.mjs --baseline rules',
+        'Deterministic scoring · 0 network dependencies',
+      ],
+    },
     links: [
       { label: 'GitHub', href: 'https://github.com/cashewna/ai-eval-checker' },
     ],
@@ -136,6 +157,13 @@ export const projects = [
     detail:
       'The scanner refuses any network outside its configured allow-list before sending a packet, and the CLI exports table, TSV or JSON.',
     stack: ['Rust', 'SQLite', 'CLI'],
+    preview: {
+      title: 'Allow-list & CLI export',
+      lines: [
+        '$ netregister scan 192.168.1.0/24 --json',
+        'ARP -> SQLite · allow-list enforced before send',
+      ],
+    },
     links: [
       { label: 'GitHub', href: 'https://github.com/cashewna/netregister' },
     ],
@@ -144,50 +172,39 @@ export const projects = [
 
 export const skills = [
   {
-    label: 'Programming',
-    items: ['C', 'C++', 'TypeScript / JavaScript', 'Rust'],
-    note: 'University coursework and self-directed study',
+    label: 'Languages',
+    items: ['TypeScript / JavaScript', 'Rust', 'C / C++', 'Java', 'Python', 'SQL'],
+    note: 'UNSW coursework and self-directed systems projects',
   },
   {
-    label: 'Retail & sales',
+    label: 'Testing & CI',
     items: [
-      'Customer needs identification',
-      'Product recommendations',
-      'Sales transactions',
-      'Returns and enquiries',
-      'Stock replenishment',
-      'Store presentation',
+      'Unit testing',
+      'Integration testing',
+      'End-to-end testing',
+      'GitHub Actions CI',
+      'Deterministic fixtures',
     ],
   },
   {
-    label: 'Customer service',
+    label: 'Systems & platforms',
     items: [
-      'Active listening',
-      'Clear communication',
-      'Problem resolution',
-      'Relationship building',
-      'Adapting to different customers',
+      'PostgreSQL',
+      'SQLite',
+      'Node / Fastify',
+      'React / Vite',
+      'Spring Boot',
+      'Linux / macOS / Windows',
     ],
   },
   {
-    label: 'Teamwork & operations',
+    label: 'Support & operations',
     items: [
+      'Hardware & software troubleshooting',
+      'Client communication',
       'Staff training',
-      'Fast-paced operations',
-      'Prioritisation',
-      'Teamwork',
-      'Adaptability',
-      'Inventory support',
-    ],
-  },
-  {
-    label: 'Technology',
-    items: [
-      'Hardware and software troubleshooting',
-      'Windows',
-      'macOS',
-      'Linux',
-      'General computer knowledge',
+      'Needs discovery & escalation',
+      'High-volume retail operations',
     ],
   },
 ];
