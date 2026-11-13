@@ -305,15 +305,6 @@ ul {
   box-shadow: var(--shadow);
 }
 
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: 0.45rem;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  pointer-events: none;
-}
-
 .card-label {
   margin-bottom: 1.1rem;
   color: var(--faint);
@@ -417,7 +408,6 @@ ul {
 
 .prose {
   max-width: 68ch;
-  margin-left: 4.7rem;
 }
 
 .prose p {
@@ -439,7 +429,6 @@ ul {
 /* Experience */
 
 .timeline {
-  margin-left: 4.7rem;
 }
 
 .job {
@@ -516,7 +505,6 @@ ul {
   display: grid;
   grid-template-columns: minmax(9rem, 14rem) minmax(0, 1fr);
   gap: clamp(1rem, 4vw, 3rem);
-  margin-left: 4.7rem;
   margin-top: 2rem;
   padding: 1.4rem;
   background: var(--paper-raised);
@@ -726,41 +714,30 @@ ul {
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 2.5rem;
-  margin-left: 4.7rem;
+  gap: 1rem;
 }
 
 .skill-group {
-  padding: 1.4rem 0;
-  border-top: 1px solid var(--line);
-}
-
-.skill-group:nth-child(-n + 2) {
-  border-top: 0;
+  padding: 1.35rem 1.5rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .skill-group h3 {
-  color: var(--ink);
+  color: var(--accent-deep);
   font-family: var(--mono);
   font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.skill-group ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.8rem;
-}
-
-.skill-group li {
-  padding: 0.3rem 0.65rem;
+.skill-items {
+  margin-top: 0.65rem;
   color: var(--ink-soft);
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  font-size: 0.82rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
 }
 
 .skill-note {

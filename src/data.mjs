@@ -17,9 +17,9 @@ export const hero = {
   intro:
     'Computer Science student at UNSW building tested systems in TypeScript, Rust, Java and SQL — from PostgreSQL service desks to ARP asset registers — backed by software support and five years of customer operations.',
   facts: [
-    { label: 'Degree', value: 'BSc Computer Science, UNSW (2023 — 2026)' },
+    { label: 'Degree', value: 'BSc Computer Science, UNSW' },
+    { label: 'Graduation', value: '2023 — 2026' },
     { label: 'Core stack', value: 'TypeScript, Rust, Java, C/C++, SQL' },
-    { label: 'Based in', value: 'Sydney, Australia' },
     { label: 'Target', value: 'Graduate software & systems roles' },
   ],
 };

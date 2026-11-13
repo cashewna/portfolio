@@ -1,5 +1,13 @@
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { site, hero, about, experience, education, projects, skills } from './data.mjs';
 import { tos, privacy } from './legal.mjs';
+
+const cssHash = createHash('sha256')
+  .update(readFileSync(fileURLToPath(new URL('../static/styles.css', import.meta.url))))
+  .digest('hex')
+  .slice(0, 8);
 
 const escapeHtml = (value) =>
   String(value)
@@ -46,7 +54,7 @@ export const layout = ({ title, description, canonical, body, bodyClass = '' }) 
     <meta property="og:site_name" content="${escapeHtml(site.name)}" />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/styles.css?v=${cssHash}" />
   </head>
   <body class="${bodyClass}">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -133,9 +141,7 @@ ${project.links
 const skillGroup = (group) => `
             <article class="skill-group">
               <h3>${escapeHtml(group.label)}</h3>
-              <ul>
-${group.items.map((item) => `                <li>${escapeHtml(item)}</li>`).join('\n')}
-              </ul>
+              <p class="skill-items">${group.items.map((item) => escapeHtml(item)).join(' · ')}</p>
 ${group.note ? `              <p class="skill-note">${escapeHtml(group.note)}</p>` : ''}
             </article>`;
 
