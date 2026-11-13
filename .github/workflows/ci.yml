@@ -48,11 +48,14 @@ jobs:
             ghcr.io/cashewna/portfolio:latest
 
       - name: Bump tag in bee-gitops
-        if: ${{ secrets.BEE_GITOPS_TOKEN != '' }}
         env:
           GH_TOKEN: ${{ secrets.BEE_GITOPS_TOKEN }}
           SHORT_SHA: ${{ steps.meta.outputs.short_sha }}
         run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "BEE_GITOPS_TOKEN not set; skipping bee-gitops bump."
+            exit 0
+          fi
           git clone "https://x-access-token:${GH_TOKEN}@github.com/cashewna/bee-gitops.git" /tmp/bee-gitops
           cd /tmp/bee-gitops
           sed -i "s|image: .*portfolio:.*|image: ghcr.io/cashewna/portfolio:sha-${SHORT_SHA}|" manifests/portfolio/deployment.yaml
