@@ -19,10 +19,17 @@ const escapeHtml = (value) =>
 
 const nav = () => `
       <nav class="site-nav" aria-label="Primary">
+        <a href="/#projects">Projects</a>
         <a href="/#about">About</a>
         <a href="/#experience">Experience</a>
-        <a href="/#projects">Projects</a>
-        <a href="/#contact">Contact</a>
+        <a href="/#skills">Skills</a>
+        <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
+          <span class="theme-switch-track" aria-hidden="true">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M12.6 3.4l-1.1 1.1M4.5 11.5l-1.1 1.1"/></svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 10.1A5.5 5.5 0 0 1 5.9 2.8a5.5 5.5 0 1 0 7.3 7.3Z"/></svg>
+            <span class="theme-switch-thumb"></span>
+          </span>
+        </button>
         <a class="nav-email" href="mailto:${site.email}">Email me</a>
       </nav>`;
 
@@ -55,6 +62,7 @@ export const layout = ({ title, description, canonical, body, bodyClass = '' }) 
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/static/styles.css?v=${cssHash}" />
+    <script src="/static/theme.js" defer></script>
   </head>
   <body class="${bodyClass}">
     <a class="skip-link" href="#main">Skip to content</a>
