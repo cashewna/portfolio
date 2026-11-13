@@ -162,7 +162,7 @@ export const privacy = {
             'the command you used, its options, and the time it was used;',
             'server configuration for the Bot, such as enabled features and moderator settings;',
             'error and diagnostic logs, including the technical details of a failed request; and',
-            'message content only where a feature must read it to work — for example, when the Bot is invoked in a channel or is configured to respond to messages there.',
+            'message content only where a feature must read it to work, for example when the Bot is invoked in a channel or is configured to respond to messages there.',
           ],
         },
         {

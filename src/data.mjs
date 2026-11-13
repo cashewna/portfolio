@@ -1,8 +1,8 @@
 export const site = {
   name: 'Krishna Khong',
-  title: 'Krishna Khong — Software & Systems Engineering',
+  title: 'Krishna Khong | Software & Systems Engineering',
   description:
-    'Krishna Khong is a UNSW Computer Science student building tested, production-shaped systems in TypeScript, Rust, Java and SQL, backed by software support and customer operations.',
+    'Krishna Khong is a UNSW Computer Science student building tested systems in TypeScript, Rust, Java, and SQL, backed by software support and customer operations.',
   url: 'https://portfolio.khong.dev',
   email: 'krishna@khong.dev',
   github: 'https://github.com/cashewna',
@@ -15,10 +15,10 @@ export const hero = {
   eyebrow: 'Sydney, Australia · UNSW Computer Science',
   headlineLines: ['A true master', 'is an eternal', 'student.'],
   intro:
-    'Computer Science student at UNSW building tested systems in TypeScript, Rust, Java and SQL — from PostgreSQL service desks to ARP asset registers — backed by software support and five years of customer operations.',
+    'Computer Science student at UNSW building tested systems in TypeScript, Rust, Java, and SQL, backed by software support and five years of customer operations.',
   facts: [
     { label: 'Degree', value: 'BSc Computer Science, UNSW' },
-    { label: 'Graduation', value: '2023 — 2026' },
+    { label: 'Graduation', value: '2023–2026' },
     { label: 'Core stack', value: 'TypeScript, Rust, Java, C/C++, SQL' },
     { label: 'Target', value: 'Graduate software & systems roles' },
   ],
@@ -35,7 +35,7 @@ export const experience = [
     role: 'Sales Associate',
     company: 'Shahi Investments Pty Ltd',
     place: 'Perth, Australia',
-    period: '2020 — 2025',
+    period: '2020–2025',
     points: [
       'Helped customers choose products by identifying their needs and explaining the relevant options clearly.',
       'Processed sales and transactions accurately while keeping service friendly and efficient.',
@@ -59,7 +59,7 @@ export const experience = [
     role: 'Service Crew',
     company: 'Each-A-Cup',
     place: 'Singapore',
-    period: '2011 — 2013',
+    period: '2011–2013',
     points: [
       'Delivered fast, friendly service in a high-volume retail environment while staying accurate during busy periods.',
       'Processed orders and payments, responded to requests and resolved service issues professionally.',
@@ -72,7 +72,7 @@ export const education = {
   school: 'UNSW',
   place: 'Sydney, Australia',
   degree: 'Bachelor of Computer Science',
-  period: '2023 — 2026',
+  period: '2023–2026',
 };
 
 export const projects = [
@@ -81,7 +81,7 @@ export const projects = [
     repo: 'ticket-queue',
     kicker: 'Service-desk application',
     description:
-      'A production-shaped IT service-desk ticketing app: strict TypeScript on Node, PostgreSQL with SQL migrations, role-based access, an append-only audit trail and an SLA clock computed from a documented policy.',
+      'An IT service-desk ticketing app built with strict TypeScript on Node, PostgreSQL with SQL migrations, role-based access, an append-only audit trail, and an SLA clock computed from a documented policy.',
     detail:
       'Server-rendered HTML that works without JavaScript, a small explicit status machine, and tests that cover every status transition.',
     stack: ['TypeScript', 'Node', 'PostgreSQL', 'Fastify'],
@@ -153,7 +153,7 @@ export const projects = [
     repo: 'netregister',
     kicker: 'Network asset register',
     description:
-      'A small, honest asset register for one local network segment. It finds hosts with ARP, records them in SQLite, and answers the support question: what equipment do we have, and when was it last seen?',
+      'An asset register for a single local network segment. It discovers hosts with ARP, stores them in SQLite, and tracks what equipment is on the network and when it was last seen.',
     detail:
       'The scanner refuses any network outside its configured allow-list before sending a packet, and the CLI exports table, TSV or JSON.',
     stack: ['Rust', 'SQLite', 'CLI'],

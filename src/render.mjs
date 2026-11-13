@@ -185,7 +185,7 @@ ${hero.headlineLines.map((line) => `              <span>${escapeHtml(line)}</spa
         </section>
 
         <section class="section" id="projects" aria-labelledby="projects-title">${sectionHead('01', 'Selected projects', 'projects-title')}
-          <p class="section-intro">Production-shaped systems with automated tests, explicit state machines, and clear boundaries. Each card links to a public repository or live deployment.</p>
+          <p class="section-intro">Software and systems projects with automated tests, explicit state machines, and clear boundaries. Each card links to a public repository or live deployment.</p>
           <div class="project-grid">
 ${projects.map(projectCard).join('\n')}
           </div>
@@ -218,7 +218,7 @@ ${skills.map(skillGroup).join('\n')}
 
         <section class="contact" id="contact" aria-labelledby="contact-title">
           <p class="contact-label">Contact</p>
-          <h2 id="contact-title">Let’s talk about work that needs both care and code.</h2>
+          <h2 id="contact-title">Get in touch about graduate software or systems roles.</h2>
           <p class="contact-copy">The fastest way to reach me is email. I am based in Sydney and happy to talk about graduate software, support and operations roles.</p>
           <p class="contact-actions">
             <a class="contact-mail" href="mailto:${site.email}">${site.email}</a>
@@ -240,7 +240,7 @@ const legalBlocks = (blocks) =>
 
 export const legalPage = (doc) =>
   layout({
-    title: `${doc.title} — ${site.name}`,
+    title: `${doc.title} | ${site.name}`,
     description: doc.description,
     canonical: `/${doc.slug}`,
     bodyClass: 'legal',
@@ -271,7 +271,7 @@ ${legalBlocks(section.blocks)}
 
 export const notFoundPage = () =>
   layout({
-    title: `Page not found — ${site.name}`,
+    title: `Page not found | ${site.name}`,
     description: 'The page you asked for does not exist.',
     canonical: '/404.html',
     bodyClass: 'not-found',
