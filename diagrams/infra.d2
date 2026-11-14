@@ -1,0 +1,80 @@
+direction: right
+
+vars: {
+  d2-config: {
+    sketch: true
+    pad: 16
+  }
+}
+
+col_left: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  direction: down
+
+  edge: "Public Edge, DNS & SecOps" {
+    class: container
+    direction: down
+    users: "Public HTTPS &\nMail Clients" {class: node}
+    crowdsec: "CrowdSec Engine\n+ Firewall Bouncer" {class: accent}
+    cf: "Cloudflare DNS\n(DNS-01 ACME)" {class: node}
+    mesh: "Headscale + Tailscale\n(Private Admin Mesh)" {class: node}
+    gitops: "GitHub / Argo CD\n(GitOps Source)" {class: node}
+    users -> crowdsec: "Filtered" {class: edge}
+  }
+
+  homelab: "Prior Proxmox Homelab" {
+    class: container
+    direction: right
+    proxmox: "Proxmox VE\n(VMs & Containers)" {class: node}
+    stack: "Caddy TLS · Gitea\nPlex & Media Stack" {class: node}
+    proxmox -> stack {class: edge}
+  }
+}
+
+oci: "Oracle Cloud Always Free (NixOS ARM · OpenTofu)" {
+  class: container
+  direction: right
+
+  k3s: "k3s Cluster (Argo CD · OpenBao + ESO)" {
+    class: container
+    direction: right
+    traefik: "Traefik Ingress\n+ cert-manager" {class: accent}
+
+    apps: "Workloads" {
+      class: container
+      grid-columns: 2
+      portfolio: "portfolio.khong.dev\n(Static Nginx)" {class: node}
+      relay: "Relay Desk Demo\n+ PostgreSQL" {class: node}
+      epi: "EPI Trainer\n(Java 21 Judge)" {class: node}
+      bulwark: "Bulwark Webmail\n(JMAP UI)" {class: node}
+    }
+
+    obs: "Observability" {
+      class: container
+      direction: down
+      vm: "VictoriaMetrics\n(vmagent · vmalert · Alertmanager)" {class: node}
+      grafana: "Grafana + Blackbox\n& Node Exporters" {class: node}
+      vm -> grafana: "Metrics" {class: edge}
+    }
+
+    traefik -> apps: "HTTPS" {class: edge}
+  }
+
+  stalwart: "Stalwart Mail Server\n(SMTP / IMAP / JMAP)" {class: node}
+  k3s.apps.bulwark -> stalwart: "JMAP" {class: edge}
+  k3s.obs.vm -> stalwart: "Probes & Alerts" {class: edge}
+}
+
+aws: "AWS Fallback (ap-southeast-2 · OpenTofu)" {
+  class: container
+  ses: "AWS SES\n(Outbound SMTP Relay)" {class: accent}
+}
+
+col_left.edge.crowdsec -> oci.k3s.traefik: "TLS" {class: edge}
+col_left.edge.cf -> oci.k3s.traefik: "DNS-01" {class: edge}
+col_left.edge.mesh -> oci: "Admin SSH / Kube" {class: edge}
+col_left.edge.gitops -> oci.k3s: "Reconcile" {class: edge}
+oci.stalwart -> aws.ses: "SMTP Fallback" {class: edge}

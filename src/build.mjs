@@ -33,7 +33,7 @@ ${urls
   .map(
     (path) => `  <url>
     <loc>${site.url}${path}</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
   </url>`,
   )
   .join('\n')}

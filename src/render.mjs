@@ -1,13 +1,26 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { site, hero, about, experience, education, projects, skills } from './data.mjs';
+import {
+  site,
+  hero,
+  about,
+  experience,
+  education,
+  projects,
+  infrastructure,
+  skills,
+} from './data.mjs';
 import { tos, privacy } from './legal.mjs';
 
-const cssHash = createHash('sha256')
-  .update(readFileSync(fileURLToPath(new URL('../static/styles.css', import.meta.url))))
-  .digest('hex')
-  .slice(0, 8);
+const hashStatic = (relativePath) =>
+  createHash('sha256')
+    .update(readFileSync(fileURLToPath(new URL(relativePath, import.meta.url))))
+    .digest('hex')
+    .slice(0, 8);
+
+const cssHash = hashStatic('../static/styles.css');
+const jsHash = hashStatic('../static/theme.js');
 
 const escapeHtml = (value) =>
   String(value)
@@ -20,9 +33,11 @@ const escapeHtml = (value) =>
 const nav = () => `
       <nav class="site-nav" aria-label="Primary">
         <a href="/#projects">Projects</a>
+        <a href="/#infrastructure">Infra</a>
         <a href="/#about">About</a>
         <a href="/#experience">Experience</a>
         <a href="/#skills">Skills</a>
+        <a href="${site.resume}" target="_blank" rel="noopener">Resume</a>
         <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode">
           <span class="theme-switch-track" aria-hidden="true">
             <svg class="theme-icon theme-icon-day" viewBox="1 0 22 17" width="18" height="14" fill="currentColor">
@@ -46,7 +61,8 @@ const footer = () => `
         <p>${escapeHtml(site.name)} · ${escapeHtml(site.location)}</p>
         <p class="footer-links">
           <a href="mailto:${site.email}">${site.email}</a>
-          <a href="${site.github}" rel="me noopener">GitHub</a>
+          <a href="${site.resume}" target="_blank" rel="noopener">Resume</a>
+          <a href="${site.github}" target="_blank" rel="me noopener">GitHub</a>
         </p>
         <p class="footer-note">Built as a static site. No trackers, no analytics, no cookies.</p>
       </footer>`;
@@ -66,13 +82,18 @@ export const layout = ({ title, description, canonical, body, bodyClass = '' }) 
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${site.url}${canonical}" />
     <meta property="og:site_name" content="${escapeHtml(site.name)}" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="${site.url}${site.ogImage}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="${site.url}${site.ogImage}" />
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/static/styles.css?v=${cssHash}" />
-    <script src="/static/theme.js" defer></script>
+    <script src="/static/theme.js?v=${jsHash}" defer></script>
   </head>
   <body class="${bodyClass}">
     <a class="skip-link" href="#main">Skip to content</a>
+    <span class="sr-only" id="copy-status" aria-live="polite"></span>
     <div class="page">
       <header class="site-header">
         <a class="brand" href="/" aria-label="${escapeHtml(site.name)} home">
@@ -128,8 +149,14 @@ const projectCard = (project, index) => `
                 <p class="project-kicker">${escapeHtml(project.kicker)}</p>
               </div>
               <h3>${escapeHtml(project.name)}</h3>
+${project.metrics?.length ? `              <ul class="project-metrics" aria-label="Verified project metrics">
+${project.metrics.map((metric) => `                <li>${escapeHtml(metric)}</li>`).join('\n')}
+              </ul>` : ''}
               <p class="project-description">${escapeHtml(project.description)}</p>
               <p class="project-detail">${escapeHtml(project.detail)}</p>
+${project.screenshot ? `              <figure class="project-media">
+                <img src="${project.screenshot.src}" width="${project.screenshot.width}" height="${project.screenshot.height}" loading="lazy" decoding="async" alt="${escapeHtml(project.screenshot.alt)}" />
+              </figure>` : ''}
 ${project.preview ? `              <div class="project-preview">
                 <p class="project-preview-title">${escapeHtml(project.preview.title)}</p>
                 <pre><code>${project.preview.lines.map((line) => escapeHtml(line)).join('\n')}</code></pre>
@@ -147,10 +174,17 @@ ${project.stack.map((tag) => `                <li>${escapeHtml(tag)}</li>`).join
 ${project.links
     .map(
       (link) =>
-        `                <a href="${link.href}"${link.href.startsWith('http') ? ' rel="noopener"' : ''}>${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
+        `                <a href="${link.href}"${link.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
     )
     .join('\n')}
               </p>
+            </article>`;
+
+const infraCard = (card) => `
+            <article class="infra-card">
+              <p class="infra-card-label">${escapeHtml(card.label)}</p>
+              <h3>${escapeHtml(card.title)}</h3>
+              <p>${escapeHtml(card.description)}</p>
             </article>`;
 
 const skillGroup = (group) => `
@@ -175,7 +209,9 @@ ${hero.headlineLines.map((line) => `              <span>${escapeHtml(line)}</spa
             <p class="hero-intro">${escapeHtml(hero.intro)}</p>
             <p class="hero-actions">
               <a class="button button-primary" href="#projects">See the work</a>
+              <a class="button button-quiet" href="${site.resume}" target="_blank" rel="noopener">Resume PDF</a>
               <a class="button button-quiet" href="mailto:${site.email}">${site.email}</a>
+              <button class="button button-quiet copy-email" type="button" data-copy-email="${site.email}">Copy email</button>
             </p>
           </div>
           <aside class="hero-card" aria-label="At a glance">
@@ -191,13 +227,61 @@ ${projects.map(projectCard).join('\n')}
           </div>
         </section>
 
-        <section class="section" id="about" aria-labelledby="about-title">${sectionHead('02', 'About', 'about-title')}
+        <section class="section" id="infrastructure" aria-labelledby="infra-title">${sectionHead('02', 'Infrastructure & operations', 'infra-title')}
+          <p class="section-intro">${escapeHtml(infrastructure.intro)}</p>
+          <figure class="infra-diagram">
+            <div class="infra-diagram-bar">
+              <span class="infra-diagram-hint">Scroll or click diagram to zoom</span>
+              <button class="button button-quiet infra-expand-btn" type="button" data-diagram-open aria-haspopup="dialog" aria-controls="diagram-modal">
+                Zoom diagram <span aria-hidden="true">⤢</span>
+              </button>
+            </div>
+            <div class="infra-diagram-scroll">
+              <button class="infra-diagram-trigger" type="button" data-diagram-open aria-label="Open enlarged infrastructure architecture diagram">
+                <img class="infra-svg infra-svg-light" src="${infrastructure.diagram.lightSrc}" alt="${escapeHtml(infrastructure.diagram.alt)}" loading="lazy" decoding="async" />
+                <img class="infra-svg infra-svg-dark" src="${infrastructure.diagram.darkSrc}" alt="${escapeHtml(infrastructure.diagram.alt)}" loading="lazy" decoding="async" />
+              </button>
+            </div>
+            <figcaption class="infra-caption">
+              <span>${escapeHtml(infrastructure.diagram.caption)}</span>
+              <span class="infra-links">
+${infrastructure.links
+    .map(
+      (link) =>
+        `                <a href="${link.href}" target="_blank" rel="noopener">${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
+    )
+    .join('\n')}
+              </span>
+            </figcaption>
+          </figure>
+          <dialog class="diagram-modal" id="diagram-modal" aria-labelledby="diagram-modal-title">
+            <div class="diagram-modal-head">
+              <p class="diagram-modal-title" id="diagram-modal-title">Infrastructure &amp; operations architecture</p>
+              <div class="diagram-modal-controls">
+                <button class="button button-quiet diagram-zoom-btn" type="button" data-zoom-delta="-0.35" aria-label="Zoom out">−</button>
+                <span class="diagram-zoom-readout" data-zoom-readout>150%</span>
+                <button class="button button-quiet diagram-zoom-btn" type="button" data-zoom-delta="0.35" aria-label="Zoom in">+</button>
+                <button class="button button-quiet diagram-zoom-btn" type="button" data-zoom-reset>Reset</button>
+                <button class="button button-primary diagram-zoom-btn" type="button" data-diagram-close aria-label="Close diagram modal">Close</button>
+              </div>
+            </div>
+            <div class="diagram-modal-stage" data-diagram-stage>
+              <img class="infra-svg infra-svg-light diagram-modal-img" src="${infrastructure.diagram.lightSrc}" alt="${escapeHtml(infrastructure.diagram.alt)}" decoding="async" />
+              <img class="infra-svg infra-svg-dark diagram-modal-img" src="${infrastructure.diagram.darkSrc}" alt="${escapeHtml(infrastructure.diagram.alt)}" decoding="async" />
+            </div>
+          </dialog>
+          <div class="infra-grid">
+${infrastructure.cards.map(infraCard).join('\n')}
+          </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-title">${sectionHead('03', 'About', 'about-title')}
           <div class="prose">
 ${about.map((paragraph) => `            <p>${escapeHtml(paragraph)}</p>`).join('\n')}
           </div>
         </section>
 
-        <section class="section" id="experience" aria-labelledby="experience-title">${sectionHead('03', 'Experience', 'experience-title')}
+        <section class="section" id="experience" aria-labelledby="experience-title">${sectionHead('04', 'Experience', 'experience-title')}
           <div class="timeline">
 ${experience.map(experienceItem).join('\n')}
           </div>
@@ -210,7 +294,7 @@ ${experience.map(experienceItem).join('\n')}
           </div>
         </section>
 
-        <section class="section" id="skills" aria-labelledby="skills-title">${sectionHead('04', 'Skills', 'skills-title')}
+        <section class="section" id="skills" aria-labelledby="skills-title">${sectionHead('05', 'Skills', 'skills-title')}
           <div class="skill-grid">
 ${skills.map(skillGroup).join('\n')}
           </div>
@@ -219,10 +303,12 @@ ${skills.map(skillGroup).join('\n')}
         <section class="contact" id="contact" aria-labelledby="contact-title">
           <p class="contact-label">Contact</p>
           <h2 id="contact-title">Get in touch about graduate software or systems roles.</h2>
-          <p class="contact-copy">The fastest way to reach me is email. I am based in Sydney and happy to talk about graduate software, support and operations roles.</p>
+          <p class="contact-copy">The fastest way to reach me is email. I am based in Sydney and happy to talk about graduate software, systems, platform, and support roles.</p>
           <p class="contact-actions">
             <a class="contact-mail" href="mailto:${site.email}">${site.email}</a>
-            <a class="button button-quiet" href="${site.github}" rel="me noopener">${site.githubLabel}</a>
+            <button class="button button-quiet copy-email" type="button" data-copy-email="${site.email}">Copy email</button>
+            <a class="button button-quiet" href="${site.resume}" target="_blank" rel="noopener">Resume PDF</a>
+            <a class="button button-quiet" href="${site.github}" target="_blank" rel="me noopener">${site.githubLabel}</a>
           </p>
         </section>`,
   });

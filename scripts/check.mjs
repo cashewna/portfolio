@@ -14,7 +14,14 @@ const mustExist = [
   'robots.txt',
   'sitemap.xml',
   'static/styles.css',
+  'static/theme.js',
   'static/favicon.svg',
+  'static/resume.pdf',
+  'static/og-image.png',
+  'static/images/relay-desk.webp',
+  'static/images/epi-trainer.webp',
+  'static/images/infra-light.svg',
+  'static/images/infra-dark.svg',
 ];
 
 const walk = async (dir) => {
@@ -95,11 +102,25 @@ const privacyPage = await readFile(join(dist, 'discord/privacy/index.html'), 'ut
 
 const contentChecks = [
   [home.includes('Krishna Khong'), 'home: name'],
+  [home.includes('A true master'), 'home: hero headline preserved (line 1)'],
+  [home.includes('is an eternal'), 'home: hero headline preserved (line 2)'],
+  [home.includes('student.'), 'home: hero headline preserved (line 3)'],
   [home.includes('Bachelor of Computer Science'), 'home: education'],
-  [home.includes('Shahi Investments'), 'home: experience'],
+  [home.includes('Shahi Investments'), 'home: experience (Sales Associate)'],
+  [home.includes('TFS Timeframe Systems'), 'home: experience (Junior Software Developer)'],
+  [home.includes('Each-A-Cup'), 'home: experience (Service Crew)'],
+  [home.includes('/static/resume.pdf'), 'home: resume PDF link'],
+  [home.includes('/static/og-image.png'), 'home: og:image metadata'],
+  [home.includes('data-copy-email="krishna@khong.dev"'), 'home: copy email button'],
+  [home.includes('Infrastructure &amp; operations'), 'home: infrastructure section'],
+  [home.includes('/static/images/infra-light.svg'), 'home: light D2 diagram'],
+  [home.includes('/static/images/infra-dark.svg'), 'home: dark D2 diagram'],
+  [home.includes('/static/images/relay-desk.webp'), 'home: Relay Desk screenshot'],
+  [home.includes('/static/images/epi-trainer.webp'), 'home: EPI Trainer screenshot'],
   [home.includes('https://github.com/cashewna/ticket-queue'), 'home: ticket-queue link'],
   [home.includes('https://github.com/cashewna/ai-eval-checker'), 'home: ai-eval-checker link'],
   [home.includes('https://github.com/cashewna/netregister'), 'home: netregister link'],
+  [home.includes('https://github.com/cashewna/bee-gitops'), 'home: bee-gitops link'],
   [home.includes('https://demo.ticket-queue.khong.dev'), 'home: ticket-queue live URL'],
   [home.includes('https://epi-trainer.khong.dev'), 'home: epi-trainer demo URL'],
   [home.includes('https://epi-trainer-auth.khong.dev'), 'home: epi-trainer full-access URL'],
@@ -113,6 +134,13 @@ const contentChecks = [
   [privacyPage.includes('What the Bot collects'), 'privacy: data section'],
   [privacyPage.includes('krishna@khong.dev'), 'privacy: contact'],
 ];
+
+for (const svgName of ['static/images/infra-light.svg', 'static/images/infra-dark.svg']) {
+  const svg = await readFile(join(dist, svgName), 'utf8');
+  if (/10\.0\.0\.|100\.64\.|137\.23\.|192\.168\./.test(svg)) {
+    failures.push(`${svgName}: private or host IP found in diagram`);
+  }
+}
 
 for (const [ok, label] of contentChecks) {
   if (!ok) failures.push(`content check failed: ${label}`);
